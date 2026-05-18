@@ -3,149 +3,399 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Apply to Be on the Show — Dr. Gumba DNA Show 🧬🎭</title>
-  <meta name="description" content="Apply to appear on the Dr. Gumba DNA Show. Tell us your story. Ukweli lazima utoke!" />
+  <title>Apply — Dr. Gumba DNA Show</title>
+  <meta name="description" content="Apply to appear on the Dr. Gumba DNA Show on Obinna Show Live. Tell us your story. Ukweli lazima utoke!" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Playfair+Display:wght@700;900&family=Bebas+Neue&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="apply.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
   <style>
-    /* Apply page nav overrides */
-    .nav-logo { font-family: var(--display); font-size: 1.4rem; letter-spacing: .05em; }
-    .nav-logo em { color: var(--gold); font-style: normal; }
-    .nav-cta { background: var(--gold) !important; color: var(--black) !important; }
+    :root {
+      --bg:     #060d14;
+      --panel:  #0b1825;
+      --card:   #101f2e;
+      --accent: #00d9a6;
+      --hot:    #ff2d6b;
+      --purple: #7c3aed;
+      --text:   #ddeaf7;
+      --muted:  #6b8aaa;
+      --border: rgba(0,217,166,.12);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
+
+    /* ── NAV ── */
+    #nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 2.5rem;
+      transition: all .3s;
+    }
+    #nav.scrolled {
+      background: rgba(6,13,20,.95); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .logo { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 800; letter-spacing: .05em; color: var(--accent); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+    .nav-links a { font-size: .82rem; font-weight: 600; color: var(--muted); transition: color .2s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      font-size: .78rem; font-weight: 800; letter-spacing: .04em;
+      padding: .5rem 1.25rem; border-radius: 6px;
+      background: var(--hot); color: #fff;
+      transition: all .2s;
+    }
+    .nav-cta:hover { opacity: .85; transform: translateY(-1px); }
+    .burger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 4px; }
+    .burger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; }
+
+    /* ── HERO ── */
+    #hero {
+      padding: 10rem 2.5rem 6rem;
+      text-align: center;
+      background:
+        radial-gradient(ellipse at 30% 40%, rgba(255,45,107,.1) 0%, transparent 55%),
+        radial-gradient(ellipse at 75% 60%, rgba(0,217,166,.07) 0%, transparent 50%),
+        var(--bg);
+    }
+    .hero-inner { max-width: 680px; margin: 0 auto; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: .5rem;
+      font-size: .68rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+      background: rgba(255,45,107,.08); border: 1px solid rgba(255,45,107,.25);
+      color: var(--hot); padding: .35rem 1rem; border-radius: 100px; margin-bottom: 1.5rem;
+    }
+    .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--hot); animation: rpulse 2s ease-in-out infinite; }
+    @keyframes rpulse { 0%,100% { box-shadow: 0 0 0 0 rgba(255,45,107,.5); } 50% { box-shadow: 0 0 0 5px rgba(255,45,107,0); } }
+    .hero-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800;
+      line-height: 1; margin-bottom: 1rem; letter-spacing: -.01em;
+    }
+    .hero-title .accent { color: var(--accent); }
+    .hero-sub { font-size: 1rem; color: var(--muted); line-height: 1.8; max-width: 520px; margin: 0 auto 2rem; }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; }
+    .hero-tag {
+      font-size: .72rem; font-weight: 700;
+      padding: .28rem .85rem; border-radius: 100px;
+      background: rgba(0,217,166,.07); border: 1px solid rgba(0,217,166,.18); color: var(--accent);
+    }
+
+    /* ── SECTION BASE ── */
+    section { padding: 6rem 2.5rem; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .eyebrow {
+      display: block; font-size: .68rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: .7rem;
+    }
+    h2.sh2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 800; line-height: 1.1;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── EXPECT SECTION ── */
+    #expect { background: var(--panel); }
+    .expect-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.2rem; }
+    .exp-card {
+      background: var(--card); border: 1px solid rgba(255,255,255,.05);
+      border-radius: 14px; padding: 1.75rem;
+      transition: border-color .2s, transform .2s;
+    }
+    .exp-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+    .exp-num {
+      font-family: 'Syne', sans-serif; font-size: 2.2rem; font-weight: 800;
+      line-height: 1; margin-bottom: .75rem; opacity: .2;
+    }
+    .exp-num.teal { color: var(--accent); opacity: 1; font-size: 1rem; font-family: 'Inter', sans-serif; font-weight: 800; letter-spacing: .04em; opacity: .9; }
+    .exp-icon { font-size: 1.8rem; margin-bottom: .75rem; }
+    .exp-card h4 { font-size: .95rem; font-weight: 800; margin-bottom: .5rem; }
+    .exp-card p { font-size: .83rem; color: var(--muted); line-height: 1.75; }
+
+    /* ── HOST STRIP ── */
+    #hosts-strip { background: var(--bg); padding: 4rem 2.5rem; }
+    .hosts-strip-inner {
+      max-width: 900px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .host-pill {
+      display: flex; align-items: center; gap: 1rem;
+      background: var(--card); border: 1px solid rgba(255,255,255,.05);
+      border-radius: 14px; padding: 1rem 1.4rem;
+    }
+    .host-pill img {
+      width: 56px; height: 56px; border-radius: 50%;
+      object-fit: cover; object-position: top center; flex-shrink: 0;
+    }
+    .host-pill.gumba img { border: 2px solid var(--accent); }
+    .host-pill.obinna img { border: 2px solid var(--hot); }
+    .host-pill-info strong { display: block; font-size: .82rem; font-weight: 800; margin-bottom: .2rem; }
+    .host-pill-info span { font-size: .78rem; color: var(--muted); font-style: italic; }
+    .host-strip-quote {
+      font-family: 'Syne', sans-serif; font-size: 1.3rem; font-weight: 800;
+      color: var(--accent); text-align: center;
+    }
+
+    /* ── FORM SECTION ── */
+    #form-section { background: var(--panel); }
+    .form-wrap { max-width: 780px; margin: 0 auto; }
+    .form-header { text-align: center; margin-bottom: 2.5rem; }
+    .form-header h2 { font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800; margin-bottom: .5rem; }
+    .form-header p { color: var(--muted); font-size: .9rem; line-height: 1.7; }
+
+    /* step dots */
+    .step-dots { display: flex; align-items: center; justify-content: center; gap: .5rem; margin-bottom: 2.5rem; }
+    .step-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.12);
+      transition: all .3s;
+    }
+    .step-dot.active { background: var(--accent); border-color: var(--accent); width: 28px; border-radius: 4px; }
+
+    /* form card */
+    .form-card {
+      background: var(--card); border: 1px solid rgba(255,255,255,.05);
+      border-radius: 16px; padding: 2.5rem;
+    }
+    .step-label-text {
+      font-size: .65rem; font-weight: 800; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 1.75rem; display: block;
+    }
+
+    /* form fields */
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-bottom: 1.2rem; }
+    .form-row.single { grid-template-columns: 1fr; }
+    .form-group { display: flex; flex-direction: column; gap: .4rem; margin-bottom: 1.2rem; }
+    .form-group:last-of-type { margin-bottom: 0; }
+    .form-group label { font-size: .78rem; font-weight: 700; color: var(--text); }
+    .req { color: var(--hot); }
+    .field-hint { font-size: .76rem; color: var(--muted); line-height: 1.65; margin-bottom: .5rem; }
+    input[type="text"], input[type="email"], input[type="tel"], input[type="number"],
+    select, textarea {
+      background: var(--panel); border: 1px solid rgba(255,255,255,.08);
+      border-radius: 8px; color: var(--text);
+      font-family: 'Inter', sans-serif; font-size: .88rem;
+      padding: .8rem 1rem; outline: none;
+      transition: border-color .2s, box-shadow .2s;
+      width: 100%;
+    }
+    input::placeholder, textarea::placeholder { color: var(--muted); }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0,217,166,.08);
+    }
+    select { appearance: none; cursor: pointer; }
+    textarea { resize: vertical; min-height: 130px; }
+    .char-count { font-size: .72rem; color: var(--muted); text-align: right; margin-top: .3rem; }
+
+    /* radio */
+    .radio-group { display: flex; flex-direction: column; gap: .6rem; }
+    .radio-opt {
+      display: flex; align-items: center; gap: .75rem;
+      font-size: .88rem; cursor: pointer;
+      background: var(--panel); border: 1px solid rgba(255,255,255,.06);
+      border-radius: 8px; padding: .75rem 1rem;
+      transition: border-color .2s;
+    }
+    .radio-opt:hover { border-color: rgba(0,217,166,.2); }
+    .radio-opt input { accent-color: var(--accent); width: 16px; height: 16px; flex-shrink: 0; }
+    .radio-opt:has(input:checked) { border-color: var(--accent); background: rgba(0,217,166,.05); }
+
+    /* consent */
+    .consent-block {
+      background: rgba(255,45,107,.04); border: 1px solid rgba(255,45,107,.15);
+      border-radius: 12px; padding: 1.5rem; margin-top: 1.5rem;
+    }
+    .consent-block h4 { font-size: .88rem; font-weight: 800; margin-bottom: 1rem; }
+    .consent-items { display: flex; flex-direction: column; gap: .75rem; }
+    .consent-item {
+      display: flex; align-items: flex-start; gap: .75rem;
+      font-size: .83rem; color: var(--muted); line-height: 1.65; cursor: pointer;
+    }
+    .consent-item input { accent-color: var(--hot); width: 16px; height: 16px; flex-shrink: 0; margin-top: .15rem; }
+
+    /* buttons */
+    .btn-row { display: flex; align-items: center; gap: 1rem; margin-top: 1.75rem; }
+    .btn {
+      display: inline-flex; align-items: center; gap: .4rem;
+      padding: .8rem 1.8rem; border-radius: 6px; font-weight: 700; font-size: .88rem;
+      font-family: 'Inter', sans-serif; cursor: pointer; border: none; transition: all .2s;
+    }
+    .btn-hot { background: var(--hot); color: #fff; }
+    .btn-hot:hover { opacity: .9; transform: translateY(-2px); box-shadow: 0 10px 28px rgba(255,45,107,.25); }
+    .btn-outline { border: 1.5px solid rgba(255,255,255,.12); color: var(--muted); background: none; }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+    .btn-submit { padding: .9rem 2.2rem; font-size: .95rem; }
+
+    /* error */
+    .form-error {
+      background: rgba(255,45,107,.08); border: 1px solid rgba(255,45,107,.3);
+      color: #ff7099; border-radius: 8px; padding: .7rem 1rem;
+      font-size: .82rem; font-weight: 700; margin-bottom: 1rem;
+    }
+
+    /* step visibility */
+    .form-step { display: none; }
+    .form-step.active { display: block; }
+
+    /* success */
+    .apply-success {
+      display: none; text-align: center; padding: 4rem 2rem;
+    }
+    .success-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+    .apply-success h2 { font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800; margin-bottom: .5rem; color: var(--accent); }
+    .apply-success .success-sub { font-style: italic; color: var(--accent); margin-bottom: 1.25rem; font-size: 1rem; }
+    .apply-success p { color: var(--muted); font-size: .92rem; line-height: 1.75; margin-bottom: .6rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .apply-success p strong { color: var(--text); }
+    .success-links { display: flex; flex-wrap: wrap; gap: .6rem; justify-content: center; margin: 1.5rem 0; }
+    .success-link {
+      font-size: .78rem; font-weight: 700; letter-spacing: .04em;
+      padding: .38rem .9rem; border-radius: 100px;
+      background: rgba(0,217,166,.08); border: 1px solid rgba(0,217,166,.2); color: var(--accent);
+      transition: all .2s;
+    }
+    .success-link:hover { background: rgba(0,217,166,.15); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg); border-top: 1px solid rgba(255,255,255,.04);
+      padding: 2rem 2.5rem;
+    }
+    .footer-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+      font-size: .8rem; color: var(--muted);
+    }
+    .footer-inner a { color: var(--accent); }
+    .footer-swahili { color: var(--hot); font-style: italic; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 860px) {
+      .expect-grid { grid-template-columns: 1fr 1fr; }
+      .hosts-strip-inner { justify-content: center; }
+      .host-strip-quote { width: 100%; }
+    }
+    @media (max-width: 640px) {
+      section, #hosts-strip { padding: 5rem 1.25rem; }
+      #hero { padding: 8rem 1.25rem 4rem; }
+      #nav { padding: .85rem 1.25rem; }
+      .nav-links, .nav-cta { display: none; }
+      .burger { display: flex; }
+      .form-row { grid-template-columns: 1fr; }
+      .form-card { padding: 1.5rem; }
+      .expect-grid { grid-template-columns: 1fr; }
+      .btn-row { flex-direction: column; align-items: stretch; }
+    }
   </style>
 </head>
 <body>
 
-  <!-- TICKER -->
-  <div class="top-ticker">
-    <div class="ticker-track">
-      <span>🎭 APPLY TO BE ON THE SHOW! &nbsp;•&nbsp;</span>
-      <span>🧬 FANYA DNA BANA! &nbsp;•&nbsp;</span>
-      <span>💥 UKWELI LAZIMA UTOKE! &nbsp;•&nbsp;</span>
-      <span>😱 YOUR STORY COULD CHANGE KENYA! &nbsp;•&nbsp;</span>
-      <span>📺 DR. GUMBA × OGA OBINNA &nbsp;•&nbsp;</span>
-      <span>🎭 APPLY TO BE ON THE SHOW! &nbsp;•&nbsp;</span>
-      <span>🧬 FANYA DNA BANA! &nbsp;•&nbsp;</span>
-      <span>💥 UKWELI LAZIMA UTOKE! &nbsp;•&nbsp;</span>
-      <span>😱 YOUR STORY COULD CHANGE KENYA! &nbsp;•&nbsp;</span>
-      <span>📺 DR. GUMBA × OGA OBINNA &nbsp;•&nbsp;</span>
+<!-- NAV -->
+<nav id="nav">
+  <a href="index.html" class="logo">DR. GUMBA DNA SHOW</a>
+  <ul class="nav-links">
+    <li><a href="index.html">About</a></li>
+    <li><a href="show.html">DNA Show</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <a href="apply.html" class="nav-cta">Apply Now</a>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-badge"><span class="badge-dot"></span> Be Part of the Show</div>
+    <h1 class="hero-title">Una Story?<br/><span class="accent">Tell Kenya.</span></h1>
+    <p class="hero-sub">Do you need a DNA test? Is there unresolved drama in your family? Apply now — Dr. Gumba will find the truth live on the Obinna Show.</p>
+    <div class="hero-tags">
+      <span class="hero-tag">😱 Unscripted</span>
+      <span class="hero-tag">🔬 Real DNA Tests</span>
+      <span class="hero-tag">📺 Live on Obinna Show</span>
+      <span class="hero-tag">🤝 Free Counseling</span>
+      <span class="hero-tag">⚖️ Legal Support</span>
     </div>
   </div>
+</section>
 
-  <!-- NAV -->
-  <nav id="nav">
-    <div class="nav-container">
-      <a href="index.html" class="logo">
-        <div class="logo-icon">🧬</div>
-        <div class="logo-text">
-          <span class="logo-main">DR. GUMBA</span>
-          <span class="logo-sub">DNA SHOW</span>
-        </div>
-      </a>
-      <ul class="nav-list" id="nav-list">
-        <li><a href="index.html#about">About</a></li>
-        <li><a href="index.html#hosts">Hosts</a></li>
-        <li><a href="index.html#show">The Show</a></li>
-        <li><a href="apply.html" class="nav-cta">Apply Now</a></li>
-      </ul>
-      <button id="burger" class="burger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
-
-  <!-- APPLY HERO -->
-  <section class="apply-hero">
-    <div class="ah-glow"></div>
-    <div class="ah-content" data-motion="zoom-in">
-      <div class="ah-eyebrow">🎭 BE PART OF THE SHOW</div>
-      <h1 class="ah-title">
-        <span class="ah-swahili">UNA STORY? 🧬</span>
-        <span class="ah-en">TELL IT TO KENYA.</span>
-      </h1>
-      <p class="ah-sub">Do you need a DNA test? Is there unresolved drama in your family? Are you tired of secrets?<br/><strong>Apply now. Dr. Gumba will find the truth — live on NTV Kenya.</strong></p>
-      <div class="ah-tags">
-        <span>😱 Unscripted</span>
-        <span>🔬 Real DNA Tests</span>
-        <span>📺 Live on NTV Kenya</span>
-        <span>🤝 Free Counseling</span>
-        <span>⚖️ Legal Support</span>
+<!-- WHAT TO EXPECT -->
+<section id="expect">
+  <div class="section-inner">
+    <span class="eyebrow">Before You Apply</span>
+    <h2 class="sh2">What to Expect</h2>
+    <div class="expect-grid">
+      <div class="exp-card">
+        <div class="exp-icon">📩</div>
+        <h4>Your Story is Read</h4>
+        <p>Every application is reviewed by our show team. We pick stories that Kenya needs to hear — dramatic, emotional, real.</p>
       </div>
-    </div>
-  </section>
-
-  <!-- WHAT TO EXPECT -->
-  <section class="expect-section">
-    <div class="container">
-      <div class="section-hdr" data-motion="fade-up">
-        <div class="s-tag">Before You Apply</div>
-        <h2>WHAT TO <span class="txt-yellow">EXPECT 👀</span></h2>
+      <div class="exp-card">
+        <div class="exp-icon">📞</div>
+        <h4>We Call You</h4>
+        <p>If selected, our team will call you within 2 weeks. We discuss your case confidentially before moving forward.</p>
       </div>
-      <div class="expect-grid">
-        <div class="exp-card" data-motion="fade-up" style="--d:.0s">
-          <div class="exp-num yellow-num">01</div>
-          <h4>Your Story is Read</h4>
-          <p>Every application is reviewed by our show team. We pick stories that Kenya needs to hear. Dramatic, emotional, real — that's what we look for.</p>
-        </div>
-        <div class="exp-card" data-motion="fade-up" style="--d:.1s">
-          <div class="exp-num pink-num">02</div>
-          <h4>We Call You</h4>
-          <p>If selected, our team will call you within 2 weeks. We discuss your case confidentially before deciding to move forward.</p>
-        </div>
-        <div class="exp-card" data-motion="fade-up" style="--d:.2s">
-          <div class="exp-num blue-num">03</div>
-          <h4>Dr. Gumba Tests</h4>
-          <p>Dr. Gumba runs the actual DNA test from our certified lab. Nobody — not even you — sees the results before the live show.</p>
-        </div>
-        <div class="exp-card" data-motion="fade-up" style="--d:.3s">
-          <div class="exp-num green-num">04</div>
-          <h4>You Come to Studio</h4>
-          <p>You come to Nairobi. Obinna interviews you. The results are revealed LIVE. Kenya reacts. Your life changes forever.</p>
-        </div>
+      <div class="exp-card">
+        <div class="exp-icon">🔬</div>
+        <h4>Dr. Gumba Tests</h4>
+        <p>Dr. Gumba runs the actual DNA test from our certified lab. Nobody — not even you — sees the results before the live show.</p>
       </div>
-    </div>
-  </section>
-
-  <!-- HOST REMINDER -->
-  <div class="host-reminder">
-    <div class="container">
-      <div class="hr-inner" data-motion="fade-up">
-        <div class="hr-host">
-          <img src="images/gumba2.png" alt="Dr. Gumba" />
-          <div>
-            <strong>DR. GUMBA</strong>
-            <span>"Ukweli uko hapa — tuma story yako."</span>
-          </div>
-        </div>
-        <div class="hr-quote">"FANYA DNA BANA!" 🧬💥</div>
-        <div class="hr-host">
-          <img src="images/obinna-profile.jpg" alt="Oga Obinna" />
-          <div>
-            <strong>OGA OBINNA</strong>
-            <span>"Wazi kabisa — hadithi yako ni muhimu!"</span>
-          </div>
-        </div>
+      <div class="exp-card">
+        <div class="exp-icon">💥</div>
+        <h4>Live Reveal</h4>
+        <p>You come to studio. Obinna interviews you. The results are revealed LIVE. Kenya reacts. Your life changes forever.</p>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- THE APPLICATION FORM -->
-  <section class="form-section">
-    <div class="container">
-      <div class="form-wrapper" data-motion="fade-up">
-        <div class="fw-header">
-          <h2>🎭 APPLICATION FORM</h2>
-          <p>Fill in every section honestly. The more detail you give, the better your chances of being selected.</p>
-        </div>
+<!-- HOST STRIP -->
+<section id="hosts-strip">
+  <div class="hosts-strip-inner">
+    <div class="host-pill gumba">
+      <img src="images/gumba4.jpg" alt="Dr. Gumba" />
+      <div class="host-pill-info">
+        <strong>DR. GUMBA</strong>
+        <span>"Ukweli uko hapa — tuma story yako."</span>
+      </div>
+    </div>
+    <div class="host-strip-quote">"FANYA DNA BANA!" 🧬</div>
+    <div class="host-pill obinna">
+      <img src="images/obinna-profile.jpg" alt="Oga Obinna" />
+      <div class="host-pill-info">
+        <strong>OGA OBINNA</strong>
+        <span>"Hadithi yako ni muhimu kwa Kenya!"</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <form id="apply-form" class="apply-form" novalidate>
+<!-- FORM -->
+<section id="form-section">
+  <div class="section-inner">
+    <div class="form-wrap">
+      <div class="form-header">
+        <span class="eyebrow" style="text-align:center;display:block">Application Form</span>
+        <h2 class="sh2" style="text-align:center;margin-bottom:.6rem">Apply to Be on the Show</h2>
+        <p>Fill in every section honestly. The more detail you give, the better your chances of being selected.</p>
+      </div>
 
-          <!-- STEP 1: Personal Info -->
+      <div class="step-dots">
+        <div class="step-dot active" id="dot-1"></div>
+        <div class="step-dot" id="dot-2"></div>
+        <div class="step-dot" id="dot-3"></div>
+      </div>
+
+      <div class="form-card">
+        <form id="apply-form" novalidate>
+
+          <!-- STEP 1 -->
           <div class="form-step active" id="step-1">
-            <div class="step-indicator">STEP 1 OF 3 — Personal Info</div>
-            <div class="form-row two-col">
+            <span class="step-label-text">Step 1 of 3 — Personal Info</span>
+            <div class="form-row">
               <div class="form-group">
                 <label>Full Name <span class="req">*</span></label>
                 <input type="text" id="full-name" placeholder="Jina lako kamili" required />
@@ -155,7 +405,7 @@
                 <input type="number" id="age" placeholder="Umri wako" min="18" max="80" required />
               </div>
             </div>
-            <div class="form-row two-col">
+            <div class="form-row">
               <div class="form-group">
                 <label>Phone Number <span class="req">*</span></label>
                 <input type="tel" id="phone" placeholder="+254 7XX XXX XXX" required />
@@ -165,7 +415,7 @@
                 <input type="email" id="email" placeholder="email@example.com" />
               </div>
             </div>
-            <div class="form-row two-col">
+            <div class="form-row">
               <div class="form-group">
                 <label>County / Location <span class="req">*</span></label>
                 <input type="text" id="location" placeholder="e.g. Nairobi, Mombasa, Kisumu..." required />
@@ -173,7 +423,7 @@
               <div class="form-group">
                 <label>Preferred Language on Show</label>
                 <select id="language">
-                  <option value="">-- Chagua --</option>
+                  <option value="">— Chagua —</option>
                   <option value="swahili">Kiswahili</option>
                   <option value="english">English</option>
                   <option value="both">Both / Zote Mbili</option>
@@ -181,83 +431,75 @@
                 </select>
               </div>
             </div>
-            <button type="button" class="btn-fire step-next" onclick="nextStep(1)">Next → Hadithi Yako</button>
+            <div class="btn-row">
+              <button type="button" class="btn btn-hot" onclick="nextStep(1)">Next — Hadithi Yako &rarr;</button>
+            </div>
           </div>
 
-          <!-- STEP 2: Your Story -->
+          <!-- STEP 2 -->
           <div class="form-step" id="step-2">
-            <div class="step-indicator">STEP 2 OF 3 — Your Story</div>
-
+            <span class="step-label-text">Step 2 of 3 — Your Story</span>
             <div class="form-group">
               <label>What type of DNA test do you need? <span class="req">*</span></label>
               <div class="radio-group">
-                <label class="radio-opt"><input type="radio" name="test-type" value="paternity" required /> 🧬 Paternity Test (baba ni nani?)</label>
-                <label class="radio-opt"><input type="radio" name="test-type" value="sibling" /> 👨‍👧 Sibling DNA (ndugu wa kweli?)</label>
-                <label class="radio-opt"><input type="radio" name="test-type" value="ancestry" /> 🌍 Ancestry Test (ninatoka wapi?)</label>
+                <label class="radio-opt"><input type="radio" name="test-type" value="paternity" required /> 🧬 Paternity Test — baba ni nani?</label>
+                <label class="radio-opt"><input type="radio" name="test-type" value="sibling" /> 👨‍👧 Sibling DNA — ndugu wa kweli?</label>
+                <label class="radio-opt"><input type="radio" name="test-type" value="ancestry" /> 🌍 Ancestry Test — ninatoka wapi?</label>
                 <label class="radio-opt"><input type="radio" name="test-type" value="other" /> 🔬 Other / Nyingine</label>
               </div>
             </div>
-
             <div class="form-group">
-              <label>Tell us your FULL story <span class="req">*</span></label>
-              <p class="field-hint">Kwa nini unahitaji DNA test? What happened? Who else is involved? Be as honest and detailed as possible. The real, messy truth is what we need.</p>
-              <textarea id="story" rows="7" placeholder="Andika hadithi yako hapa — kwa Kiswahili au English. Usiache chochote. Siri yako iko salama kwetu kwanza..." required></textarea>
-              <div class="char-count"><span id="char-count">0</span> / 2000 characters</div>
+              <label>Tell us your full story <span class="req">*</span></label>
+              <p class="field-hint">Kwa nini unahitaji DNA test? What happened? Who else is involved? Be honest and detailed — the real, messy truth is what we need.</p>
+              <textarea id="story" rows="7" placeholder="Andika hadithi yako hapa — kwa Kiswahili au English. Usiache chochote..." required></textarea>
+              <div class="char-count"><span id="char-count">0</span> / 2000</div>
             </div>
-
             <div class="form-group">
               <label>Who else will be tested? <span class="req">*</span></label>
               <input type="text" id="others" placeholder="e.g. Mwenzangu, mtoto wangu, kaka yangu..." required />
             </div>
-
             <div class="form-group">
               <label>How long has this question been unsettled?</label>
               <select id="duration">
-                <option value="">-- Choose --</option>
-                <option value="weeks">A few weeks / Wiki chache</option>
-                <option value="months">A few months / Miezi chache</option>
+                <option value="">— Choose —</option>
+                <option value="weeks">A few weeks</option>
+                <option value="months">A few months</option>
                 <option value="1-3years">1–3 years</option>
                 <option value="3-10years">3–10 years</option>
-                <option value="10+years">More than 10 years / Zaidi ya miaka 10</option>
+                <option value="10+years">More than 10 years</option>
               </select>
             </div>
-
-            <div class="form-row btn-row">
-              <button type="button" class="btn-ghost" onclick="prevStep(2)">← Back</button>
-              <button type="button" class="btn-fire step-next" onclick="nextStep(2)">Next → Final Step</button>
+            <div class="btn-row">
+              <button type="button" class="btn btn-outline" onclick="prevStep(2)">&larr; Back</button>
+              <button type="button" class="btn btn-hot" onclick="nextStep(2)">Next — Final Step &rarr;</button>
             </div>
           </div>
 
-          <!-- STEP 3: Consent & Submit -->
+          <!-- STEP 3 -->
           <div class="form-step" id="step-3">
-            <div class="step-indicator">STEP 3 OF 3 — Consent & Submit</div>
-
+            <span class="step-label-text">Step 3 of 3 — Consent &amp; Submit</span>
             <div class="form-group">
               <label>Why do you want to do this on live TV? <span class="req">*</span></label>
-              <p class="field-hint">Why not just do a private test? What makes you want the world to know? This is your chance to speak directly to Dr. Gumba and Oga Obinna.</p>
+              <p class="field-hint">Why not just do a private test? What makes you want Kenya to witness your truth?</p>
               <textarea id="why-tv" rows="5" placeholder="Niambie kwa nini unataka ukweli mbele ya Kenya yote..." required></textarea>
             </div>
-
             <div class="form-group">
               <label>Social Media Handles (Optional)</label>
               <input type="text" id="socials" placeholder="@tiktok, @instagram, @twitter..." />
             </div>
-
             <div class="form-group">
               <label>How did you hear about the show?</label>
               <select id="referral">
-                <option value="">-- Choose --</option>
+                <option value="">— Choose —</option>
                 <option value="tiktok">TikTok</option>
                 <option value="instagram">Instagram</option>
                 <option value="youtube">YouTube</option>
-                <option value="ntv">NTV Kenya</option>
                 <option value="friend">Friend / Rafiki</option>
                 <option value="other">Other</option>
               </select>
             </div>
-
             <div class="consent-block">
-              <h4>📋 Consent & Agreement</h4>
+              <h4>Consent &amp; Agreement</h4>
               <div class="consent-items">
                 <label class="consent-item">
                   <input type="checkbox" id="c1" required />
@@ -265,11 +507,11 @@
                 </label>
                 <label class="consent-item">
                   <input type="checkbox" id="c2" required />
-                  <span>I understand that if selected, the DNA results will be revealed live on national television and may be shared on social media.</span>
+                  <span>I understand that if selected, the DNA results will be revealed live on television and may be shared on social media.</span>
                 </label>
                 <label class="consent-item">
                   <input type="checkbox" id="c3" required />
-                  <span>I consent to the show's production team contacting me and the other parties involved in my application.</span>
+                  <span>I consent to the production team contacting me and the other parties involved in my application.</span>
                 </label>
                 <label class="consent-item">
                   <input type="checkbox" id="c4" required />
@@ -277,77 +519,162 @@
                 </label>
               </div>
             </div>
-
-            <div class="form-row btn-row">
-              <button type="button" class="btn-ghost" onclick="prevStep(3)">← Back</button>
-              <button type="submit" class="btn-fire btn-submit">🎭 Submit My Application!</button>
+            <div class="btn-row">
+              <button type="button" class="btn btn-outline" onclick="prevStep(3)">&larr; Back</button>
+              <button type="submit" class="btn btn-hot btn-submit">Submit My Application &rarr;</button>
             </div>
-          </div>
-
-          <!-- Step dots -->
-          <div class="step-dots">
-            <div class="dot active" id="dot-1"></div>
-            <div class="dot" id="dot-2"></div>
-            <div class="dot" id="dot-3"></div>
           </div>
 
         </form>
 
-        <!-- SUCCESS STATE -->
+        <!-- SUCCESS -->
         <div class="apply-success" id="apply-success">
-          <div class="success-emoji">🎉🧬💥</div>
-          <h2>OMBI LIMEPOKELEWA!</h2>
-          <p class="success-swahili">"Asante kwa ujasiri wako — ukweli unakuja!"</p>
+          <div class="success-icon">🎉</div>
+          <h2>Ombi Limepokelewa!</h2>
+          <p class="success-sub">"Asante kwa ujasiri wako — ukweli unakuja!"</p>
           <p>Your application has been received. Our team will review your story and contact you within <strong>2 weeks</strong> if you are selected.</p>
-          <p>In the meantime, follow us on social media for show updates:</p>
-          <div class="success-socials">
-            <a href="https://www.tiktok.com/@ogaobinnatiktok" target="_blank" class="hs-link tiktok">TikTok @ogaobinnatiktok</a>
-            <a href="https://www.instagram.com/ogaobinna" target="_blank" class="hs-link ig">Instagram @ogaobinna</a>
-            <a href="https://www.tiktok.com/@ngumbamls" target="_blank" class="hs-link tiktok">TikTok @ngumbamls</a>
+          <p>Follow us for show updates:</p>
+          <div class="success-links">
+            <a href="https://www.tiktok.com/@ngumbamls" target="_blank" class="success-link">TikTok @ngumbamls</a>
+            <a href="https://www.tiktok.com/@ogaobinnatiktok" target="_blank" class="success-link">TikTok @ogaobinnatiktok</a>
+            <a href="https://www.instagram.com/ogaobinna" target="_blank" class="success-link">Instagram @ogaobinna</a>
           </div>
-          <a href="index.html" class="btn-fire" style="margin-top:2rem">← Back to Home</a>
+          <a href="index.html" class="btn btn-hot" style="margin-top:1rem">&larr; Back to Home</a>
         </div>
-
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="fg-brand">
-          <div class="footer-logo">🧬 DR. GUMBA DNA SHOW</div>
-          <p>"DNA haisemi uongo. Ukweli lazima utoke."</p>
-          <div class="footer-socials">
-            <a href="https://www.tiktok.com/@ngumbamls" target="_blank">Dr. Gumba TikTok</a>
-            <a href="https://www.tiktok.com/@ogaobinnatiktok" target="_blank">Obinna TikTok</a>
-            <a href="https://www.instagram.com/ogaobinna" target="_blank">Instagram</a>
-            <a href="https://www.facebook.com/drngumba" target="_blank">Facebook</a>
-          </div>
-        </div>
-        <div class="fg-col">
-          <h4>Show</h4>
-          <a href="index.html#about">About Dr. Gumba</a>
-          <a href="index.html#hosts">The Hosts</a>
-          <a href="index.html#show">How It Works</a>
-          <a href="apply.html">Apply</a>
-        </div>
-        <div class="fg-col">
-          <h4>Contact</h4>
-          <a href="#">Dr. Gumba: 0740 250 696</a>
-          <a href="mailto:info@obinnatvstudios.com">info@obinnatvstudios.com</a>
-          <a href="#">+254 798 663 936</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>© 2026 Dr. Gumba DNA Show · Made in Kenya 🇰🇪</span>
-        <span class="fb-swahili">"Fanya DNA Bana!" 🧬</span>
-      </div>
-    </div>
-  </footer>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <span>&copy; 2026 Dr. Gumba DNA Show &middot; <a href="index.html">Home</a> &middot; <a href="show.html">The Show</a> &middot; Kenya 🇰🇪</span>
+    <span class="footer-swahili">"Fanya DNA Bana!" 🧬</span>
+  </div>
+</footer>
 
-  <script src="app.js"></script>
-  <script src="apply.js"></script>
+<script>
+/* Nav scroll */
+window.addEventListener('scroll', function() {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
+});
+
+/* Burger */
+const burger = document.getElementById('burger');
+if (burger) {
+  burger.addEventListener('click', function() {
+    const links = document.querySelector('.nav-links');
+    const open = links.style.display === 'flex';
+    if (!open) {
+      Object.assign(links.style, {
+        display: 'flex', flexDirection: 'column', position: 'fixed',
+        top: '64px', right: '1.25rem', background: 'rgba(6,13,20,.98)',
+        border: '1px solid rgba(0,217,166,.15)', borderRadius: '12px',
+        padding: '1.25rem 1.75rem', gap: '.9rem', zIndex: '200',
+        backdropFilter: 'blur(20px)', boxShadow: '0 20px 40px rgba(0,0,0,.5)'
+      });
+    } else {
+      links.style.display = '';
+    }
+  });
+  document.addEventListener('click', function(e) {
+    const nav = document.getElementById('nav');
+    const links = document.querySelector('.nav-links');
+    if (!nav.contains(e.target) && links.style.display === 'flex') {
+      links.style.display = '';
+    }
+  });
+  document.querySelectorAll('.nav-links a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      document.querySelector('.nav-links').style.display = '';
+    });
+  });
+}
+
+/* Multi-step form */
+let currentStep = 1;
+
+function updateDots() {
+  [1,2,3].forEach(function(i) {
+    const dot = document.getElementById('dot-' + i);
+    dot.classList.toggle('active', i <= currentStep);
+  });
+}
+
+function showError(msg) {
+  let err = document.getElementById('form-error');
+  if (!err) {
+    err = document.createElement('div');
+    err.id = 'form-error';
+    err.className = 'form-error';
+    document.querySelector('.form-step.active').prepend(err);
+  }
+  err.textContent = '⚠ ' + msg;
+  setTimeout(function() { if (err.parentNode) err.remove(); }, 4000);
+}
+
+function nextStep(from) {
+  if (from === 1) {
+    const name  = document.getElementById('full-name').value.trim();
+    const age   = document.getElementById('age').value;
+    const phone = document.getElementById('phone').value.trim();
+    const loc   = document.getElementById('location').value.trim();
+    if (!name || !age || !phone || !loc) { showError('Please fill in all required fields (*)'); return; }
+    if (+age < 18) { showError('You must be 18 or older to apply.'); return; }
+  }
+  if (from === 2) {
+    const type  = document.querySelector('input[name="test-type"]:checked');
+    const story = document.getElementById('story').value.trim();
+    const others = document.getElementById('others').value.trim();
+    if (!type || story.length < 50 || !others) {
+      showError('Please tell us your story (at least 50 characters) and fill in all required fields.');
+      return;
+    }
+  }
+  document.getElementById('step-' + from).classList.remove('active');
+  currentStep = from + 1;
+  document.getElementById('step-' + currentStep).classList.add('active');
+  updateDots();
+  window.scrollTo({ top: document.getElementById('form-section').offsetTop - 80, behavior: 'smooth' });
+}
+
+function prevStep(from) {
+  document.getElementById('step-' + from).classList.remove('active');
+  currentStep = from - 1;
+  document.getElementById('step-' + currentStep).classList.add('active');
+  updateDots();
+}
+
+/* Char counter */
+const storyArea = document.getElementById('story');
+if (storyArea) {
+  storyArea.addEventListener('input', function() {
+    const c = storyArea.value.length;
+    document.getElementById('char-count').textContent = c;
+    if (c > 2000) storyArea.value = storyArea.value.slice(0, 2000);
+  });
+}
+
+/* Submit */
+document.getElementById('apply-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const checks = ['c1','c2','c3','c4'];
+  for (const id of checks) {
+    if (!document.getElementById(id).checked) {
+      showError('Please agree to all consent items before submitting.');
+      return;
+    }
+  }
+  const whyTV = document.getElementById('why-tv').value.trim();
+  if (whyTV.length < 20) {
+    showError('Please explain why you want to do this on live TV (at least 20 characters).');
+    return;
+  }
+  document.getElementById('apply-form').style.display = 'none';
+  document.getElementById('apply-success').style.display = 'block';
+  window.scrollTo({ top: document.getElementById('form-section').offsetTop - 80, behavior: 'smooth' });
+});
+</script>
 </body>
 </html>
