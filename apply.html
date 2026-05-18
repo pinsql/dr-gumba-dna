@@ -6,9 +6,15 @@
   <title>Apply to Be on the Show — Dr. Gumba DNA Show 🧬🎭</title>
   <meta name="description" content="Apply to appear on the Dr. Gumba DNA Show. Tell us your story. Ukweli lazima utoke!" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bangers&family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Playfair+Display:wght@700;900&family=Bebas+Neue&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="apply.css" />
+  <style>
+    /* Apply page nav overrides */
+    .nav-logo { font-family: var(--display); font-size: 1.4rem; letter-spacing: .05em; }
+    .nav-logo em { color: var(--gold); font-style: normal; }
+    .nav-cta { background: var(--gold) !important; color: var(--black) !important; }
+  </style>
 </head>
 <body>
 
@@ -29,19 +35,24 @@
   </div>
 
   <!-- NAV -->
-  <nav id="navbar">
-    <div class="nav-wrap">
-      <a href="index.html" class="nav-logo">
-        <span>🧬</span>
-        <span>DR.<em>GUMBA</em> DNA</span>
+  <nav id="nav">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">🧬</div>
+        <div class="logo-text">
+          <span class="logo-main">DR. GUMBA</span>
+          <span class="logo-sub">DNA SHOW</span>
+        </div>
       </a>
-      <ul class="nav-links" id="nav-links">
+      <ul class="nav-list" id="nav-list">
+        <li><a href="index.html#about">About</a></li>
         <li><a href="index.html#hosts">Hosts</a></li>
         <li><a href="index.html#show">The Show</a></li>
-        <li><a href="index.html#coming-soon">Tune In</a></li>
-        <li><a href="apply.html" class="nav-apply-btn">🎭 APPLY NOW</a></li>
+        <li><a href="apply.html" class="nav-cta">Apply Now</a></li>
       </ul>
-      <button class="hamburger" id="hamburger">☰</button>
+      <button id="burger" class="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
 
@@ -302,24 +313,24 @@
   </section>
 
   <!-- FOOTER -->
-  <footer>
+  <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="fg-brand">
-          <div class="nav-logo">🧬 DR.<em>GUMBA</em> DNA</div>
-          <p>"DNA haisemi uongo. Ukweli lazima utoke."<br/>Kenya's most explosive DNA reality show.</p>
-          <div class="fg-socials">
-            <a href="https://www.tiktok.com/@ogaobinnatiktok" target="_blank">TikTok</a>
+          <div class="footer-logo">🧬 DR. GUMBA DNA SHOW</div>
+          <p>"DNA haisemi uongo. Ukweli lazima utoke."</p>
+          <div class="footer-socials">
+            <a href="https://www.tiktok.com/@ngumbamls" target="_blank">Dr. Gumba TikTok</a>
+            <a href="https://www.tiktok.com/@ogaobinnatiktok" target="_blank">Obinna TikTok</a>
             <a href="https://www.instagram.com/ogaobinna" target="_blank">Instagram</a>
-            <a href="https://www.youtube.com/@obinnatvupdates" target="_blank">YouTube</a>
             <a href="https://www.facebook.com/drngumba" target="_blank">Facebook</a>
           </div>
         </div>
         <div class="fg-col">
           <h4>Show</h4>
+          <a href="index.html#about">About Dr. Gumba</a>
           <a href="index.html#hosts">The Hosts</a>
           <a href="index.html#show">How It Works</a>
-          <a href="index.html#coming-soon">Season 2</a>
           <a href="apply.html">Apply</a>
         </div>
         <div class="fg-col">
@@ -331,7 +342,7 @@
       </div>
       <div class="footer-bottom">
         <span>© 2026 Dr. Gumba DNA Show · Made in Kenya 🇰🇪</span>
-        <span>"Fanya DNA Bana!" 🧬💥</span>
+        <span class="fb-swahili">"Fanya DNA Bana!" 🧬</span>
       </div>
     </div>
   </footer>

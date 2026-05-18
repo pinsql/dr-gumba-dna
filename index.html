@@ -3,423 +3,581 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dr. Gumba DNA Show — Kenya's Wildest DNA Reality Show 🧬🔥</title>
-  <meta name="description" content="Kenya's most EXPLOSIVE DNA reality show. Dr. Gumba + Oga Obinna. Fanya DNA Bana! Ukweli lazima utoke. Every Friday 8PM NTV Kenya." />
+  <title>Dr. Gumba DNA Show — Kenya's #1 DNA Reality Show</title>
+  <meta name="description" content="Dr. Peter Ngumba's DNA Show on Obinna Show Live. Kenya's most explosive DNA reality show. Fanya DNA Bana!" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bangers&family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Playfair+Display:wght@700;900&family=Bebas+Neue&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <canvas id="confetti-canvas"></canvas>
-
-  <!-- ── TOP TICKER ── -->
-  <div class="top-ticker">
-    <div class="ticker-track">
-      <span>🔥 FANYA DNA BANA! &nbsp;•&nbsp;</span>
-      <span>🧬 DNA HAISEMI UONGO! &nbsp;•&nbsp;</span>
-      <span>💥 UKWELI LAZIMA UTOKE! &nbsp;•&nbsp;</span>
-      <span>📺 IJUMAA 8PM · NTV KENYA &nbsp;•&nbsp;</span>
-      <span>😱 SIRI ZIMEKWISHA! &nbsp;•&nbsp;</span>
-      <span>🎭 APPLY NOW — BE ON THE SHOW! &nbsp;•&nbsp;</span>
-      <span>🔥 FANYA DNA BANA! &nbsp;•&nbsp;</span>
-      <span>🧬 DNA HAISEMI UONGO! &nbsp;•&nbsp;</span>
-      <span>💥 UKWELI LAZIMA UTOKE! &nbsp;•&nbsp;</span>
-      <span>📺 IJUMAA 8PM · NTV KENYA &nbsp;•&nbsp;</span>
-      <span>😱 SIRI ZIMEKWISHA! &nbsp;•&nbsp;</span>
-      <span>🎭 APPLY NOW — BE ON THE SHOW! &nbsp;•&nbsp;</span>
+  <!-- TICKER -->
+  <div class="ticker-bar">
+    <div class="ticker-inner">
+      <span>🧬 FANYA DNA BANA! &nbsp;·&nbsp; DNA HAISEMI UONGO! &nbsp;·&nbsp; UKWELI LAZIMA UTOKE! &nbsp;·&nbsp; ON THE OBINNA SHOW &nbsp;·&nbsp; SIRI ZIMEKWISHA! &nbsp;·&nbsp; EVERY FRIDAY 8PM &nbsp;·&nbsp; APPLY NOW — BE ON THE SHOW! &nbsp;·&nbsp; 🧬 FANYA DNA BANA! &nbsp;·&nbsp; DNA HAISEMI UONGO! &nbsp;·&nbsp; UKWELI LAZIMA UTOKE! &nbsp;·&nbsp; ON THE OBINNA SHOW &nbsp;·&nbsp; SIRI ZIMEKWISHA! &nbsp;·&nbsp; EVERY FRIDAY 8PM &nbsp;·&nbsp; APPLY NOW — BE ON THE SHOW! &nbsp;·&nbsp;</span>
     </div>
   </div>
 
-  <!-- ── NAV ── -->
-  <nav id="navbar">
-    <div class="nav-wrap">
-      <a href="index.html" class="nav-logo">
-        <span>🧬</span>
-        <span>DR.<em>GUMBA</em> DNA</span>
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">🧬</div>
+        <div class="logo-text">
+          <span class="logo-main">DR. GUMBA</span>
+          <span class="logo-sub">DNA SHOW</span>
+        </div>
       </a>
-      <ul class="nav-links" id="nav-links">
+      <ul class="nav-list" id="nav-list">
+        <li><a href="#about">About</a></li>
         <li><a href="#hosts">Hosts</a></li>
         <li><a href="#show">The Show</a></li>
-        <li><a href="#coming-soon">Tune In</a></li>
-        <li><a href="apply.html" class="nav-apply-btn">🎭 APPLY NOW</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="apply.html" class="nav-cta">Apply Now</a></li>
       </ul>
-      <button class="hamburger" id="hamburger">☰</button>
+      <button id="burger" class="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
 
-  <!-- ══════════════════════════════════════════
+  <!-- ═══════════════════════════════
        HERO
-  ══════════════════════════════════════════ -->
-  <section id="hero">
+  ═══════════════════════════════ -->
+  <header class="hero">
     <div class="hero-bg">
-      <div class="hbg-circle c1"></div>
-      <div class="hbg-circle c2"></div>
-      <div class="hbg-circle c3"></div>
+      <div class="hero-gradient"></div>
+      <div class="hero-noise"></div>
     </div>
 
-    <div class="hero-left" data-motion="fade-right">
-      <div class="hero-eyebrow">
-        <span class="live-pulse"></span>
-        KENYA'S WILDEST DNA SHOW
-      </div>
-      <h1 class="hero-h1">
-        <span class="h1-swahili">"FANYA DNA<br/>BANA!" 🧬</span>
-        <span class="h1-en">THE TRUTH<br/>WILL SET YOU FREE.<br/>OR DESTROY YOU.</span>
-      </h1>
-      <p class="hero-desc">No scripts. No edits. No mercy.<br/>Dr. Gumba has the results — Obinna has the microphone.<br/><strong>Kenya has never been the same.</strong></p>
-
-      <div class="hero-btns">
-        <a href="apply.html" class="btn-fire">🎭 Apply to Be on the Show</a>
-        <a href="#coming-soon" class="btn-ghost">📺 Watch Season 2</a>
-      </div>
-
-      <div class="hero-swahili-chips">
-        <span class="sw-chip">"Ukweli lazima utoke!" 💥</span>
-        <span class="sw-chip">"DNA haisemi uongo!" 🧬</span>
-        <span class="sw-chip">"Siri zimekwisha!" 😱</span>
-      </div>
-    </div>
-
-    <div class="hero-right" data-motion="fade-left">
-      <div class="hero-hosts-visual">
-        <!-- DR GUMBA card -->
-        <div class="hv-card gumba-card">
-          <div class="hvc-img-wrap">
-            <img src="images/gumba2.png" alt="Dr. Peter Gumba" />
+    <div class="hero-body">
+      <div class="hero-left" data-reveal="left">
+        <div class="show-badge">
+          <span class="badge-dot"></span>
+          ON THE OBINNA SHOW LIVE
+        </div>
+        <h1 class="hero-h1">
+          <span class="h1-small">DR. GUMBA</span>
+          <span class="h1-big">DNA<br/>SHOW</span>
+        </h1>
+        <p class="hero-tagline">
+          <em>"Fanya DNA Bana!"</em><br/>
+          Kenya's most talked-about DNA expert brings the truth to your screen — every Friday.
+        </p>
+        <div class="hero-actions">
+          <a href="apply.html" class="btn-primary">Apply for the Show</a>
+          <a href="#about" class="btn-secondary">Learn More</a>
+        </div>
+        <div class="hero-meta">
+          <div class="meta-item">
+            <strong>2,400+</strong>
+            <span>Families Tested</span>
           </div>
-          <div class="hvc-name">DR. GUMBA</div>
-          <div class="hvc-role">🔬 DNA Expert</div>
-          <div class="hvc-quote">"Ukweli uko hapa."</div>
+          <div class="meta-sep"></div>
+          <div class="meta-item">
+            <strong>Season 2</strong>
+            <span>June 6 · 2026</span>
+          </div>
+          <div class="meta-sep"></div>
+          <div class="meta-item">
+            <strong>Friday 8PM</strong>
+            <span>Ijumaa Usiku</span>
+          </div>
         </div>
+      </div>
 
-        <div class="hv-vs">
-          <span>+</span>
-          <small>the</small>
-          <span>TRUTH</span>
-          <small>bomb</small>
-          <span>💣</span>
-        </div>
-
-        <!-- OBINNA card -->
-        <div class="hv-card obinna-card">
-          <div class="hvc-img-wrap obinna-wrap">
+      <div class="hero-right" data-reveal="right">
+        <div class="hero-img-stack">
+          <div class="his-main">
+            <img src="images/gumba2.png" alt="Dr. Peter Ngumba" class="his-photo" />
+            <div class="his-card">
+              <div class="his-card-name">DR. PETER NGUMBA</div>
+              <div class="his-card-title">🔬 DNA Expert · Show Host</div>
+            </div>
+          </div>
+          <div class="his-collab">
             <img src="images/obinna-profile.jpg" alt="Oga Obinna" />
+            <div class="his-collab-text">
+              <strong>ft. OGA OBINNA</strong>
+              <span>Co-Host</span>
+            </div>
           </div>
-          <div class="hvc-name">OGA OBINNA</div>
-          <div class="hvc-role">🎤 Show Host</div>
-          <div class="hvc-quote">"Wazi kabisa! 😂"</div>
+          <div class="his-badge-pill">💥 99.98% Accurate</div>
         </div>
       </div>
-
-      <!-- floating stat pills -->
-      <div class="float-pill pill-a" data-motion="zoom-in">😱 2,400+ Families Tested</div>
-      <div class="float-pill pill-b" data-motion="zoom-in">🔥 5M+ Total Views</div>
-      <div class="float-pill pill-c" data-motion="zoom-in">📺 NTV Kenya • Ijumaa 8PM</div>
     </div>
-  </section>
 
-  <!-- ── STATS BAR ── -->
-  <div class="stats-bar">
-    <div class="sb-item">
-      <span class="sb-num" data-count="2400">0</span><span>+</span>
+    <a href="#about" class="scroll-down">
+      <span>Scroll Down</span>
+      <div class="scroll-arrow"></div>
+    </a>
+  </header>
+
+  <!-- ═══════════════════════════════
+       STATS STRIP
+  ═══════════════════════════════ -->
+  <div class="stats-strip">
+    <div class="ss-item">
+      <strong class="ss-num" data-count="2400">0</strong><span>+</span>
       <small>DNA Tests</small>
     </div>
-    <div class="sb-div">🧬</div>
-    <div class="sb-item">
-      <span class="sb-num" data-count="98">0</span><span>%</span>
-      <small>Shocking Results</small>
+    <div class="ss-line"></div>
+    <div class="ss-item">
+      <strong class="ss-num" data-count="5">0</strong><span>M+</span>
+      <small>Views</small>
     </div>
-    <div class="sb-div">💥</div>
-    <div class="sb-item">
-      <span class="sb-num" data-count="5">0</span><span>M+</span>
-      <small>YouTube Views</small>
+    <div class="ss-line"></div>
+    <div class="ss-item">
+      <strong class="ss-num" data-count="98">0</strong><span>%</span>
+      <small>Shocking Reveals</small>
     </div>
-    <div class="sb-div">😱</div>
-    <div class="sb-item">
-      <span class="sb-num" data-count="12">0</span><span>+</span>
+    <div class="ss-line"></div>
+    <div class="ss-item">
+      <strong class="ss-num" data-count="12">0</strong><span>+</span>
       <small>Seasons</small>
+    </div>
+    <div class="ss-line"></div>
+    <div class="ss-item">
+      <strong>LIVE</strong>
+      <small>On Obinna Show</small>
     </div>
   </div>
 
-  <!-- ══════════════════════════════════════════
+  <!-- ═══════════════════════════════
+       ABOUT DR. GUMBA
+  ═══════════════════════════════ -->
+  <section id="about" class="section about-section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-img-col" data-reveal="left">
+          <div class="about-img-wrap">
+            <img src="images/gumba2.png" alt="Dr. Peter Ngumba" class="about-main-img" />
+            <div class="about-img-badge">
+              <div class="aib-label">Chief DNA Expert</div>
+              <div class="aib-contact">📞 0740 250 696</div>
+            </div>
+            <div class="about-dna-bar">
+              <span class="db a">A</span><span class="db t">T</span>
+              <span class="db g">G</span><span class="db c">C</span>
+              <span class="db a">A</span><span class="db t">T</span>
+              <span class="db g">G</span><span class="db c">C</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-text-col" data-reveal="right">
+          <div class="section-eyebrow">The Star of the Show</div>
+          <h2 class="section-title">DR. PETER<br/><span class="accent-gold">NGUMBA</span></h2>
+          <div class="about-divider"></div>
+          <p class="about-lead">"Ukweli uko hapa. DNA haisemi uongo." — Dr. Gumba</p>
+          <p>Kenya's most recognised DNA testing expert. Dr. Peter Ngumba (popularly known as <strong>Dr. Gumba</strong>) pioneered door-to-door paternity testing in Nairobi before the nation demanded he bring it to national television.</p>
+          <p>Through <strong>Microafia Healthcare</strong>, Dr. Gumba has conducted over 2,400 certified DNA tests — each one life-changing. His results are lab-certified, legally admissible, and delivered with unflinching honesty.</p>
+          <p>Now partnered with <strong>Oga Obinna</strong> on the Obinna Show Live, Dr. Gumba brings Kenya's most explosive DNA reveals to millions of viewers every Friday night.</p>
+
+          <div class="about-facts">
+            <div class="af-item">
+              <div class="af-icon">🔬</div>
+              <div>
+                <strong>Microafia Healthcare</strong>
+                <span>Accredited DNA Lab · Nairobi</span>
+              </div>
+            </div>
+            <div class="af-item">
+              <div class="af-icon">⚖️</div>
+              <div>
+                <strong>Legally Admissible</strong>
+                <span>Court-certified DNA results</span>
+              </div>
+            </div>
+            <div class="af-item">
+              <div class="af-icon">📞</div>
+              <div>
+                <strong>Book a Test</strong>
+                <span>0740 250 696</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-socials">
+            <a href="https://www.tiktok.com/@ngumbamls" target="_blank" class="as-link">
+              <span class="as-icon">TikTok</span> @ngumbamls
+            </a>
+            <a href="https://www.facebook.com/drngumba" target="_blank" class="as-link">
+              <span class="as-icon">Facebook</span> @drngumba
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════
+       ON THE OBINNA SHOW
+  ═══════════════════════════════ -->
+  <section class="show-collab-section">
+    <div class="scb-bg">
+      <img src="images/obtv_WhatsApp-Image-2025-07-29-at-03.28.15_bc37eeba.jpg" alt="On the Obinna Show Live" class="scb-bg-img" />
+      <div class="scb-overlay"></div>
+    </div>
+    <div class="container">
+      <div class="scb-content" data-reveal="up">
+        <div class="scb-tag">📺 The Collaboration</div>
+        <h2 class="scb-title">NOW ON THE<br/><span class="accent-gold">OBINNA SHOW LIVE</span></h2>
+        <p class="scb-sub">Dr. Gumba brings the lab — Obinna brings the energy. Together they've created Kenya's most unmissable Friday night television.</p>
+        <a href="#coming-soon" class="btn-primary">Watch Season 2 →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════
        HOSTS
-  ══════════════════════════════════════════ -->
+  ═══════════════════════════════ -->
   <section id="hosts" class="section hosts-section">
     <div class="container">
-      <div class="section-hdr" data-motion="fade-up">
-        <div class="s-tag">Meet The Dream Team</div>
-        <h2>THE PEOPLE WHO<br/><span class="txt-pink">EXPOSE YOUR SECRETS 👀</span></h2>
-        <p class="s-sub">"Habari gani, Kenya? The duo that changed everything is back."</p>
+      <div class="section-hdr centered" data-reveal="up">
+        <div class="section-eyebrow">The Dream Team</div>
+        <h2 class="section-title">MEET THE HOSTS</h2>
       </div>
 
-      <div class="hosts-grid">
-        <!-- DR GUMBA -->
-        <div class="host-card" data-motion="fade-right">
-          <div class="hc-img-container">
-            <div class="hc-blob yellow-blob"></div>
-            <img src="images/gumba2.png" alt="Dr. Peter Gumba" class="hc-photo" />
-            <div class="hc-badge-tag ytag">CHIEF DNA EXPERT</div>
+      <div class="hosts-duo">
+        <!-- DR GUMBA PRIMARY -->
+        <div class="host-feature" data-reveal="left">
+          <div class="hf-img-wrap">
+            <img src="images/gumba2.png" alt="Dr. Peter Ngumba" class="hf-img" />
+            <div class="hf-number">01</div>
           </div>
-          <div class="hc-body">
-            <h3 class="hc-name txt-yellow">DR. PETER NGUMBA</h3>
-            <div class="hc-title-sub">Kenya's #1 DNA Specialist · Microafia Healthcare</div>
-            <p class="hc-bio">Started with door-to-door paternity tests in Nairobi and ended up with a national TV show — because Kenya DEMANDED the truth. Dr. Gumba has tested over 2,400 families and his results have never been wrong.</p>
-            <p class="hc-bio"><em>"Ukweli uko hapa. DNA haisemi uongo."</em> — Dr. Gumba</p>
-            <div class="hc-tags">
-              <span>🔬 Lab Certified</span><span>⚖️ Court Admissible</span>
-              <span>🇰🇪 Nairobi Based</span><span>📞 0740 250 696</span>
+          <div class="hf-info">
+            <div class="hf-role gold">SHOW STAR · DNA EXPERT</div>
+            <h3 class="hf-name">Dr. Peter<br/>Ngumba</h3>
+            <p>"Started testing families door-to-door across Nairobi. Now Kenya watches live. The mission hasn't changed — the truth always comes out."</p>
+            <div class="hf-chips">
+              <span>🔬 Microafia Healthcare</span>
+              <span>⚖️ Court-Certified</span>
+              <span>🇰🇪 Nairobi</span>
+              <span>📞 0740 250 696</span>
             </div>
-            <div class="hc-socials">
-              <a href="https://www.tiktok.com/@ngumbamls" target="_blank" class="hs-link tiktok">TikTok @ngumbamls</a>
-              <a href="https://www.facebook.com/drngumba" target="_blank" class="hs-link fb">Facebook @drngumba</a>
+            <div class="hf-socials-row">
+              <a href="https://www.tiktok.com/@ngumbamls" target="_blank">TikTok @ngumbamls</a>
+              <a href="https://www.facebook.com/drngumba" target="_blank">Facebook @drngumba</a>
             </div>
           </div>
         </div>
 
-        <!-- OGA OBINNA -->
-        <div class="host-card obinna-hcard" data-motion="fade-left">
-          <div class="hc-img-container">
-            <div class="hc-blob pink-blob"></div>
-            <img src="images/obinna-profile.jpg" alt="Oga Obinna" class="hc-photo obinna-photo" />
-            <div class="hc-badge-tag ptag">CO-HOST & TV LEGEND</div>
+        <!-- OBINNA CO-HOST -->
+        <div class="host-feature secondary" data-reveal="right">
+          <div class="hf-img-wrap">
+            <img src="images/obinna-profile.jpg" alt="Oga Obinna" class="hf-img" />
+            <div class="hf-number alt">02</div>
           </div>
-          <div class="hc-body">
-            <h3 class="hc-name txt-pink">OGA OBINNA</h3>
-            <div class="hc-title-sub">Comedian · TV Host · Media Mogul · Obinna TV Studios</div>
-            <p class="hc-bio">1.4M TikTok followers. 1M+ on Instagram. Multiple YouTube channels. Oga Obinna has built East Africa's biggest media empire — and he brings ALL that energy to the DNA reveal stage. Nobody reacts like Obinna.</p>
-            <p class="hc-bio"><em>"Wazi kabisa! Hii ni ukweli wa kweli!"</em> — Oga Obinna</p>
-            <div class="hc-tags">
-              <span>🎤 Zero Chill</span><span>😂 Iconic Reactions</span>
-              <span>📺 Obinna TV Studios</span><span>🏆 EA's Best Host</span>
+          <div class="hf-info">
+            <div class="hf-role pink">CO-HOST · TV LEGEND</div>
+            <h3 class="hf-name">Oga<br/>Obinna</h3>
+            <p>"When Dr. Gumba reads the result, Kenya holds its breath. That moment — that's why we do the show."</p>
+            <div class="hf-chips">
+              <span>🎤 Obinna Show Live</span>
+              <span>📺 Obinna TV Studios</span>
+              <span>1.4M TikTok followers</span>
+              <span>1M+ Instagram</span>
             </div>
-            <div class="hc-socials">
-              <a href="https://www.tiktok.com/@ogaobinnatiktok" target="_blank" class="hs-link tiktok">TikTok @ogaobinnatiktok</a>
-              <a href="https://www.instagram.com/ogaobinna" target="_blank" class="hs-link ig">Instagram @ogaobinna</a>
-              <a href="https://obinnatvstudios.com" target="_blank" class="hs-link web">obinnatvstudios.com</a>
+            <div class="hf-socials-row">
+              <a href="https://www.tiktok.com/@ogaobinnatiktok" target="_blank">TikTok @ogaobinnatiktok</a>
+              <a href="https://www.instagram.com/ogaobinna" target="_blank">Instagram @ogaobinna</a>
+              <a href="https://obinnatvstudios.com" target="_blank">obinnatvstudios.com</a>
             </div>
           </div>
+        </div>
+      </div>
+
+      <!-- Obinna extra photos row -->
+      <div class="host-extra-row">
+        <div class="her-item" data-reveal="up" style="--d:.0s">
+          <img src="images/obinna-show.jpg" alt="Oga Obinna at studio" />
+          <span>Obinna TV Studios</span>
+        </div>
+        <div class="her-item" data-reveal="up" style="--d:.1s">
+          <img src="images/obinna-formal.png" alt="Oga Obinna formal" />
+          <span>Show Night Ready</span>
+        </div>
+        <div class="her-item" data-reveal="up" style="--d:.2s">
+          <img src="images/obinna-mc.jpg" alt="Oga Obinna MC" />
+          <span>On Stage</span>
+        </div>
+        <div class="her-item" data-reveal="up" style="--d:.3s">
+          <img src="images/obtv_WhatsApp-Image-2025-07-29-at-03.28.15_bc37eeba.jpg" alt="On Set" />
+          <span>Obinna Show Live Set</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── DNA IMAGE BANNER ── -->
-  <section class="dna-img-section">
-    <div class="di-left" data-motion="fade-right">
-      <div class="di-img-wrap">
-        <img src="images/dna-kenya.png" alt="DNA Paternity Test Kenya" />
-        <div class="di-label">🔬 Real Test. Real Results. On Live TV.</div>
-      </div>
-    </div>
-    <div class="di-right" data-motion="fade-left">
-      <div class="s-tag">The Science Is Real</div>
-      <h2>REAL TESTS.<br/><span class="txt-yellow">REAL DRAMA.</span><br/>WAZI KABISA.</h2>
-      <ul class="di-list">
-        <li>🧬 <strong>Paternity Testing</strong> — Is he the father? Kenya needs to know.</li>
-        <li>👨‍👩‍👧 <strong>Sibling DNA</strong> — Are you really related? Find out live.</li>
-        <li>🌍 <strong>Ancestry Testing</strong> — Where do you really come from?</li>
-        <li>⚖️ <strong>Legal DNA</strong> — Court-admissible results, certified labs.</li>
-      </ul>
-      <a href="apply.html" class="btn-fire" style="margin-top:1.5rem">🧬 Get Tested on TV →</a>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════
-       SHOW FORMAT
-  ══════════════════════════════════════════ -->
-  <section id="show" class="section show-section">
+  <!-- ═══════════════════════════════
+       DNA TEST SECTION
+  ═══════════════════════════════ -->
+  <section class="dna-test-section section">
     <div class="container">
-      <div class="section-hdr" data-motion="fade-up">
-        <div class="s-tag">How The Show Works</div>
-        <h2>FOUR STEPS.<br/><span class="txt-yellow">INFINITE DRAMA.</span> 🎭</h2>
-      </div>
-      <div class="show-steps">
-        <div class="step" data-motion="fade-up" style="--d:.0s">
-          <div class="step-icon">📩</div>
-          <div class="step-num">01</div>
-          <h4>OMBA NAFASI</h4>
-          <p>Apply online. Tell us your story. Kwa nini unahitaji DNA test? The more real, the better.</p>
+      <div class="dts-grid">
+        <div class="dts-img" data-reveal="left">
+          <img src="images/dna-kenya.png" alt="DNA Paternity Test Kenya" />
+          <div class="dts-img-label">🔬 Real Lab · Real Results · Live TV</div>
         </div>
-        <div class="step-arr">→</div>
-        <div class="step" data-motion="fade-up" style="--d:.12s">
-          <div class="step-icon">🔬</div>
-          <div class="step-num">02</div>
-          <h4>DR. GUMBA TESTS</h4>
-          <p>Dr. Gumba runs the real test in the lab. Results sealed. Nobody sees them until show night.</p>
-        </div>
-        <div class="step-arr">→</div>
-        <div class="step" data-motion="fade-up" style="--d:.24s">
-          <div class="step-icon">🎤</div>
-          <div class="step-num">03</div>
-          <h4>OBINNA ANAULIZA</h4>
-          <p>Oga Obinna interviews everyone live. Hakuna siri. Hakuna mwisho. Kenya is watching.</p>
-        </div>
-        <div class="step-arr">→</div>
-        <div class="step boom-step" data-motion="fade-up" style="--d:.36s">
-          <div class="step-icon">💥</div>
-          <div class="step-num">04</div>
-          <h4>THE REVEAL 💣</h4>
-          <p>The envelope opens LIVE. Kenya reacts. Someone cries. Someone runs. Nobody forgets.</p>
+        <div class="dts-content" data-reveal="right">
+          <div class="section-eyebrow">The Science</div>
+          <h2 class="section-title">REAL TESTS.<br/><span class="accent-gold">REAL RESULTS.</span></h2>
+          <p>Every single DNA test on the show is conducted by Kenya's top accredited laboratories. No theatrics, no staging — just pure science.</p>
+          <div class="test-types">
+            <div class="tt-row">
+              <span class="tt-dot gold"></span>
+              <div><strong>Paternity Testing</strong> — The most common. Is he the father?</div>
+            </div>
+            <div class="tt-row">
+              <span class="tt-dot pink"></span>
+              <div><strong>Sibling DNA</strong> — Verify biological siblings once and for all.</div>
+            </div>
+            <div class="tt-row">
+              <span class="tt-dot blue"></span>
+              <div><strong>Ancestry Testing</strong> — Discover where you truly come from.</div>
+            </div>
+            <div class="tt-row">
+              <span class="tt-dot green"></span>
+              <div><strong>Legal DNA</strong> — Court-admissible results from certified labs.</div>
+            </div>
+          </div>
+          <a href="apply.html" class="btn-primary" style="margin-top:2rem">Get Tested on TV →</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════════
-       COMING SOON
-  ══════════════════════════════════════════ -->
-  <section id="coming-soon" class="cs-section">
-    <div class="cs-bg-glow"></div>
+  <!-- ═══════════════════════════════
+       THE SHOW — HOW IT WORKS
+  ═══════════════════════════════ -->
+  <section id="show" class="section show-steps-section">
+    <div class="container">
+      <div class="section-hdr centered" data-reveal="up">
+        <div class="section-eyebrow">How It Works</div>
+        <h2 class="section-title">FOUR STEPS TO<br/><span class="accent-gold">THE TRUTH 💣</span></h2>
+      </div>
 
-    <div class="cs-poster-col" data-motion="fade-right">
-      <div class="show-poster-card">
-        <div class="spc-shine"></div>
-        <div class="spc-inner">
-          <div class="spc-s2">🔥 SEASON 2</div>
-          <div class="spc-logo">🧬</div>
-          <div class="spc-title">DR. GUMBA<br/>DNA SHOW</div>
-          <div class="spc-vs">ft.</div>
-          <div class="spc-host">OGA OBINNA</div>
-          <div class="spc-sep"></div>
-          <div class="spc-date">JUNE 6 · 2026</div>
-          <div class="spc-time">8PM EAT</div>
-          <div class="spc-channel">NTV KENYA &amp; YOUTUBE</div>
-          <div class="spc-bases">
-            <span class="dna-b a">A</span><span class="dna-b t">T</span>
-            <span class="dna-b g">G</span><span class="dna-b c">C</span>
-            <span class="dna-b a">A</span><span class="dna-b t">T</span>
-            <span class="dna-b g">G</span><span class="dna-b c">C</span>
+      <div class="steps-row">
+        <div class="step-block" data-reveal="up" style="--d:.0s">
+          <div class="step-icon-wrap yellow-wrap"><span>📩</span></div>
+          <div class="step-content">
+            <div class="step-label">Step 01</div>
+            <h4>Omba Nafasi</h4>
+            <p>Apply online with your story. Our team reads every submission. Kwa nini unahitaji DNA test?</p>
           </div>
-          <div class="spc-swahili">"Fanya DNA Bana!"</div>
         </div>
-        <div class="spc-ribbon">COMING SOON</div>
+        <div class="step-conn"></div>
+        <div class="step-block" data-reveal="up" style="--d:.1s">
+          <div class="step-icon-wrap red-wrap"><span>🔬</span></div>
+          <div class="step-content">
+            <div class="step-label">Step 02</div>
+            <h4>Dr. Gumba Tests</h4>
+            <p>Dr. Gumba runs the real DNA test in the lab. Results are sealed until show night.</p>
+          </div>
+        </div>
+        <div class="step-conn"></div>
+        <div class="step-block" data-reveal="up" style="--d:.2s">
+          <div class="step-icon-wrap purple-wrap"><span>🎤</span></div>
+          <div class="step-content">
+            <div class="step-label">Step 03</div>
+            <h4>Obinna Anauliza</h4>
+            <p>Oga Obinna interviews everyone live on the Obinna Show. Hakuna siri. Hakuna mwisho.</p>
+          </div>
+        </div>
+        <div class="step-conn"></div>
+        <div class="step-block boom" data-reveal="up" style="--d:.3s">
+          <div class="step-icon-wrap gold-wrap"><span>💥</span></div>
+          <div class="step-content">
+            <div class="step-label">Step 04</div>
+            <h4>The Reveal</h4>
+            <p>The envelope opens live. Kenya reacts. Someone's life changes forever. <em>Ukweli umefika.</em></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════
+       GALLERY
+  ═══════════════════════════════ -->
+  <section id="gallery" class="section gallery-section">
+    <div class="container">
+      <div class="section-hdr centered" data-reveal="up">
+        <div class="section-eyebrow">Photo Gallery</div>
+        <h2 class="section-title">THE FACES OF<br/><span class="accent-gold">THE TRUTH 📸</span></h2>
+      </div>
+
+      <div class="gallery-masonry">
+        <div class="gm-col">
+          <div class="gm-item large" data-reveal="up">
+            <img src="images/gumba2.png" alt="Dr. Peter Ngumba" />
+            <div class="gm-caption">Dr. Peter Ngumba — Kenya's DNA Expert</div>
+          </div>
+          <div class="gm-item" data-reveal="up" style="--d:.2s">
+            <img src="images/dna-kenya.png" alt="DNA Test" />
+            <div class="gm-caption">Paternity Test — Real Lab, Real Results</div>
+          </div>
+        </div>
+        <div class="gm-col middle-col">
+          <div class="gm-item" data-reveal="up" style="--d:.1s">
+            <img src="images/obinna-profile.jpg" alt="Oga Obinna" />
+            <div class="gm-caption">Oga Obinna — Co-Host</div>
+          </div>
+          <div class="gm-item" data-reveal="up" style="--d:.25s">
+            <img src="images/obtv_WhatsApp-Image-2025-07-29-at-03.28.15_bc37eeba.jpg" alt="Obinna Show Live" />
+            <div class="gm-caption">On Set — Obinna Show Live</div>
+          </div>
+        </div>
+        <div class="gm-col">
+          <div class="gm-item" data-reveal="up" style="--d:.15s">
+            <img src="images/obinna-show.jpg" alt="Obinna TV Studios" />
+            <div class="gm-caption">Obinna TV Studios — Behind the Scenes</div>
+          </div>
+          <div class="gm-item" data-reveal="up" style="--d:.3s">
+            <img src="images/obinna-formal.png" alt="Oga Obinna formal" />
+            <div class="gm-caption">Oga Obinna — Show Night</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════
+       COMING SOON / SEASON 2
+  ═══════════════════════════════ -->
+  <section id="coming-soon" class="coming-soon-section">
+    <div class="cs-left" data-reveal="left">
+      <div class="show-poster">
+        <div class="sp-shine"></div>
+        <div class="sp-body">
+          <div class="sp-season-badge">SEASON 2</div>
+          <div class="sp-icon">🧬</div>
+          <div class="sp-showname">DR. GUMBA<br/>DNA SHOW</div>
+          <div class="sp-on">ON</div>
+          <div class="sp-obinna">OBINNA SHOW LIVE</div>
+          <div class="sp-rule"></div>
+          <div class="sp-date">JUNE 6 · 2026</div>
+          <div class="sp-time">FRIDAY · 8PM EAT</div>
+          <div class="sp-bases">
+            <span class="spb a">A</span><span class="spb t">T</span>
+            <span class="spb g">G</span><span class="spb c">C</span>
+            <span class="spb a">A</span><span class="spb t">T</span>
+            <span class="spb g">G</span><span class="spb c">C</span>
+          </div>
+          <div class="sp-swahili">"Fanya DNA Bana!"</div>
+        </div>
+        <div class="sp-footer">COMING SOON · IJAKARIBIA!</div>
       </div>
     </div>
 
-    <div class="cs-info-col" data-motion="fade-left">
-      <div class="cs-tag-badge">🎬 NEW SEASON ALERT</div>
-      <h2 class="cs-h2">BRACE<br/>YOURSELF.<br/><span class="txt-pink">IT'S BACK. 🔥</span></h2>
-      <p class="cs-sub">"Ukweli lazima utoke!" — Season 2 drops Friday June 6th, 2026. Bigger reveals. More drama. Same ZERO filter energy you love.</p>
+    <div class="cs-right" data-reveal="right">
+      <div class="section-eyebrow" style="color:var(--pink)">Season 2 · 2026</div>
+      <h2 class="cs-h2">BRACE<br/>YOURSELF.<br/><span class="accent-gold">IT'S BACK.</span></h2>
+      <p class="cs-desc">"Ukweli lazima utoke!" — Season 2 of the Dr. Gumba DNA Show drops June 6th on the Obinna Show Live. More families. More results. Same zero-filter energy.</p>
 
       <div class="countdown" id="countdown">
-        <div class="cdb"><span class="cdn" id="cd-days">00</span><small>Siku</small></div>
-        <div class="cdc">:</div>
-        <div class="cdb"><span class="cdn" id="cd-hours">00</span><small>Masaa</small></div>
-        <div class="cdc">:</div>
-        <div class="cdb"><span class="cdn" id="cd-mins">00</span><small>Dakika</small></div>
-        <div class="cdc">:</div>
-        <div class="cdb"><span class="cdn" id="cd-secs">00</span><small>Sekunde</small></div>
+        <div class="cdb">
+          <span class="cdn" id="cd-days">00</span>
+          <small>Siku / Days</small>
+        </div>
+        <span class="cdc">:</span>
+        <div class="cdb">
+          <span class="cdn" id="cd-hours">00</span>
+          <small>Masaa / Hrs</small>
+        </div>
+        <span class="cdc">:</span>
+        <div class="cdb">
+          <span class="cdn" id="cd-mins">00</span>
+          <small>Dakika / Min</small>
+        </div>
+        <span class="cdc">:</span>
+        <div class="cdb">
+          <span class="cdn" id="cd-secs">00</span>
+          <small>Sekunde / Sec</small>
+        </div>
       </div>
 
-      <form class="alert-form" id="notify-form">
-        <input type="email" placeholder="Ingiza email yako — get show alerts" required />
-        <button type="submit">🔔 Niambie!</button>
+      <form id="notify-form" class="notify-form">
+        <input type="email" placeholder="Get show alerts — enter your email" required />
+        <button type="submit">Notify Me 🔔</button>
       </form>
-      <p class="alert-ok" id="notify-ok">✅ Umewekwa! We'll hit you before June 6. 🔥</p>
+      <p id="notify-ok" class="notify-ok">✅ You're on the list! See you June 6.</p>
 
-      <div class="watch-chips">
-        <span class="wc-label">Tazama kwenye:</span>
-        <a href="#" class="wchip">📺 NTV Kenya</a>
-        <a href="https://www.youtube.com/@obinnatvupdates" target="_blank" class="wchip">▶ YouTube</a>
-        <a href="https://www.tiktok.com/@ogaobinnatiktok" target="_blank" class="wchip">📱 TikTok</a>
-        <a href="https://www.instagram.com/ogaobinna" target="_blank" class="wchip">📸 Instagram</a>
+      <div class="watch-on">
+        <span>Watch on:</span>
+        <a href="#" class="wob">Obinna Show Live</a>
+        <a href="https://www.youtube.com/@obinnatvupdates" target="_blank" class="wob">YouTube</a>
+        <a href="https://www.tiktok.com/@ogaobinnatiktok" target="_blank" class="wob">TikTok</a>
+        <a href="https://www.instagram.com/ogaobinna" target="_blank" class="wob">Instagram</a>
       </div>
     </div>
   </section>
 
-  <!-- ── PHOTO GALLERY ── -->
-  <section class="gallery-section section">
+  <!-- ═══════════════════════════════
+       APPLY CTA
+  ═══════════════════════════════ -->
+  <section class="apply-cta-section">
     <div class="container">
-      <div class="section-hdr" data-motion="fade-up">
-        <div class="s-tag">Photo Gallery</div>
-        <h2>THE TEAM BEHIND <span class="txt-pink">THE TRUTH 📸</span></h2>
-      </div>
-      <div class="gallery-grid">
-        <div class="gg-item tall" data-motion="fade-up" style="--d:0s">
-          <img src="images/gumba2.png" alt="Dr. Gumba" />
-          <div class="gg-overlay"><span>🔬 Dr. Gumba — DNA Expert</span></div>
+      <div class="acs-inner" data-reveal="up">
+        <div class="acs-text">
+          <div class="acs-swahili">"Una Story? 🧬"</div>
+          <h2>GET ON THE SHOW —<br/>TELL KENYA YOUR TRUTH.</h2>
+          <p>Apply now. Dr. Gumba has the science. Obinna has the microphone. Kenya is watching. <em>Ukweli lazima utoke!</em></p>
         </div>
-        <div class="gg-item" data-motion="fade-up" style="--d:.08s">
-          <img src="images/obinna-profile.jpg" alt="Oga Obinna Blue Suit" />
-          <div class="gg-overlay"><span>🎤 Oga Obinna — Show Host</span></div>
-        </div>
-        <div class="gg-item" data-motion="fade-up" style="--d:.16s">
-          <img src="images/obinna-show.jpg" alt="Oga Obinna at Studio" />
-          <div class="gg-overlay"><span>📺 Obinna TV Studios</span></div>
-        </div>
-        <div class="gg-item tall" data-motion="fade-up" style="--d:.1s">
-          <img src="images/obinna-formal.png" alt="Oga Obinna formal" />
-          <div class="gg-overlay"><span>😎 Oga Obinna — Ready for the Reveal</span></div>
-        </div>
-        <div class="gg-item" data-motion="fade-up" style="--d:.24s">
-          <img src="images/dna-kenya.png" alt="DNA Paternity Test Kenya" />
-          <div class="gg-overlay"><span>🧬 Paternity Test — Real Results</span></div>
-        </div>
-        <div class="gg-item" data-motion="fade-up" style="--d:.32s">
-          <img src="images/obinna-mc.jpg" alt="Oga Obinna MC" />
-          <div class="gg-overlay"><span>🎭 Obinna on Stage</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── APPLY CTA BANNER ── -->
-  <section class="apply-banner">
-    <div class="container">
-      <div class="ab-inner" data-motion="zoom-in">
-        <div class="ab-left">
-          <div class="ab-emoji">🎭</div>
-          <div>
-            <h2>UNA STORY? 🧬<br/>KUJAne KWENYE SHOW!</h2>
-            <p>Je, unahitaji DNA test? Kuna drama nyumbani? Apply now na uambie Kenya ukweli. Dr. Gumba ana jibu. Obinna ana mic.</p>
+        <div class="acs-actions">
+          <a href="apply.html" class="btn-primary btn-xl">Apply to Be on the Show →</a>
+          <div class="acs-contact">
+            <span>Or call Dr. Gumba directly:</span>
+            <strong>0740 250 696</strong>
           </div>
         </div>
-        <a href="apply.html" class="btn-fire btn-big">Apply to Be on the Show →</a>
       </div>
     </div>
   </section>
 
-  <!-- ── FOOTER ── -->
-  <footer>
+  <!-- FOOTER -->
+  <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="fg-brand">
-          <div class="nav-logo">🧬 DR.<em>GUMBA</em> DNA</div>
-          <p>"DNA haisemi uongo. Ukweli lazima utoke."<br/>Kenya's most explosive DNA reality show.</p>
-          <div class="fg-socials">
-            <a href="https://www.tiktok.com/@ogaobinnatiktok" target="_blank">TikTok</a>
+          <div class="footer-logo">🧬 DR. GUMBA DNA SHOW</div>
+          <p>"DNA haisemi uongo. Ukweli lazima utoke."</p>
+          <div class="footer-socials">
+            <a href="https://www.tiktok.com/@ngumbamls" target="_blank">Dr. Gumba TikTok</a>
+            <a href="https://www.facebook.com/drngumba" target="_blank">Facebook</a>
+            <a href="https://www.tiktok.com/@ogaobinnatiktok" target="_blank">Obinna TikTok</a>
             <a href="https://www.instagram.com/ogaobinna" target="_blank">Instagram</a>
             <a href="https://www.youtube.com/@obinnatvupdates" target="_blank">YouTube</a>
-            <a href="https://www.facebook.com/drngumba" target="_blank">Facebook</a>
-            <a href="https://obinnatvstudios.com" target="_blank">ObinnaTV</a>
           </div>
         </div>
         <div class="fg-col">
           <h4>Show</h4>
+          <a href="#about">About Dr. Gumba</a>
           <a href="#hosts">The Hosts</a>
           <a href="#show">How It Works</a>
-          <a href="#coming-soon">Season 2</a>
+          <a href="#gallery">Gallery</a>
           <a href="apply.html">Apply</a>
         </div>
         <div class="fg-col">
-          <h4>DNA Tests</h4>
+          <h4>DNA Services</h4>
           <a href="#">Paternity Test</a>
+          <a href="#">Sibling DNA</a>
           <a href="#">Ancestry Test</a>
-          <a href="#">Sibling Test</a>
           <a href="#">Legal DNA</a>
+          <a href="#">Book a Test</a>
         </div>
         <div class="fg-col">
           <h4>Contact</h4>
           <a href="#">Dr. Gumba: 0740 250 696</a>
           <a href="mailto:info@obinnatvstudios.com">info@obinnatvstudios.com</a>
           <a href="#">+254 798 663 936</a>
-          <a href="apply.html">Apply for Show</a>
+          <a href="https://obinnatvstudios.com" target="_blank">obinnatvstudios.com</a>
         </div>
       </div>
       <div class="footer-bottom">
         <span>© 2026 Dr. Gumba DNA Show · Made in Kenya 🇰🇪</span>
-        <span>"Fanya DNA Bana!" 🧬💥</span>
+        <span class="fb-swahili">"Fanya DNA Bana!" 🧬</span>
       </div>
     </div>
   </footer>

@@ -1,136 +1,112 @@
-/* ── Nav scroll ── */
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 30);
-});
+/* ── Nav scroll + mobile ── */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 30));
 
-/* ── Scroll animations ── */
-const mo = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
-document.querySelectorAll('[data-motion]').forEach(el => mo.observe(el));
-
-/* ── Animated counters ── */
-function runCounters() {
-  document.querySelectorAll('.sb-num, .s-num').forEach(el => {
-    if (el.dataset.animated) return;
-    el.dataset.animated = '1';
-    const target = +el.dataset.count;
-    let cur = 0;
-    const step = target / 55;
-    const t = setInterval(() => {
-      cur = Math.min(cur + step, target);
-      el.textContent = Math.floor(cur).toLocaleString();
-      if (cur >= target) clearInterval(t);
-    }, 22);
+const burger = document.getElementById('burger');
+const navList = document.getElementById('nav-list');
+if (burger && navList) {
+  burger.addEventListener('click', () => {
+    const open = navList.classList.toggle('open');
+    Object.assign(navList.style, open ? {
+      display: 'flex', flexDirection: 'column', position: 'fixed',
+      top: '68px', right: '1.25rem', zIndex: '200',
+      background: 'rgba(10,10,10,.98)', border: '1px solid rgba(255,255,255,.08)',
+      borderRadius: '12px', padding: '1.25rem 1.75rem', gap: '.9rem',
+      backdropFilter: 'blur(24px)', boxShadow: '0 20px 40px rgba(0,0,0,.5)'
+    } : { display: '' });
   });
-}
-const statsBar = document.querySelector('.stats-bar');
-if (statsBar) {
-  new IntersectionObserver(e => { if (e[0].isIntersecting) { runCounters(); } }, { threshold: .5 }).observe(statsBar);
-}
-
-/* ── Countdown Timer ── */
-(function () {
-  const target = new Date('2026-06-06T20:00:00+03:00').getTime();
-  function pad(n) { return String(n).padStart(2, '0'); }
-  function tick() {
-    const diff = target - Date.now();
-    if (diff <= 0) return;
-    document.getElementById('cd-days').textContent  = pad(Math.floor(diff / 86400000));
-    document.getElementById('cd-hours').textContent = pad(Math.floor((diff % 86400000) / 3600000));
-    document.getElementById('cd-mins').textContent  = pad(Math.floor((diff % 3600000) / 60000));
-    document.getElementById('cd-secs').textContent  = pad(Math.floor((diff % 60000) / 1000));
-  }
-  tick();
-  setInterval(tick, 1000);
-})();
-
-/* ── Notify form ── */
-const nf = document.getElementById('notify-form');
-if (nf) {
-  nf.addEventListener('submit', e => {
-    e.preventDefault();
-    nf.style.display = 'none';
-    document.getElementById('notify-ok').style.display = 'block';
-  });
-}
-
-/* ── Hamburger ── */
-const hb = document.getElementById('hamburger');
-const nl = document.getElementById('nav-links');
-if (hb && nl) {
-  hb.addEventListener('click', () => {
-    const open = nl.classList.toggle('mobile-open');
-    if (open) {
-      Object.assign(nl.style, {
-        display: 'flex', flexDirection: 'column', position: 'fixed',
-        top: '64px', right: '1.25rem', background: 'rgba(7,6,15,.98)',
-        border: '1px solid rgba(255,45,107,.2)', borderRadius: '10px',
-        padding: '1rem 1.5rem', gap: '1rem', zIndex: '200',
-        backdropFilter: 'blur(20px)'
-      });
-    } else {
-      nl.style.display = '';
+  document.addEventListener('click', e => {
+    if (!nav.contains(e.target) && navList.classList.contains('open')) {
+      navList.classList.remove('open');
+      navList.style.display = '';
     }
   });
 }
 
-/* ── Confetti burst on load ── */
-(function () {
-  const canvas = document.getElementById('confetti-canvas');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  canvas.style.position = 'fixed';
-  canvas.style.inset = '0';
-  canvas.style.zIndex = '999';
-  canvas.style.pointerEvents = 'none';
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+/* ── Scroll-reveal ── */
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('revealed'); });
+}, { threshold: 0.07, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('[data-reveal]').forEach(el => revealObs.observe(el));
 
-  const colors = ['#f5c518','#ff2d6b','#00d4ff','#00ff88','#7c3aed','#ff6b35'];
-  const emojis = ['🧬','💥','😱','🔬','🎭'];
-  const pieces = [];
-  const COUNT = 80;
+/* ── Counter animation ── */
+function startCounters() {
+  document.querySelectorAll('.ss-num').forEach(el => {
+    if (el.dataset.done) return;
+    el.dataset.done = '1';
+    const target = +el.dataset.count;
+    let cur = 0, step = target / 60;
+    const t = setInterval(() => {
+      cur = Math.min(cur + step, target);
+      el.textContent = Math.floor(cur).toLocaleString();
+      if (cur >= target) clearInterval(t);
+    }, 20);
+  });
+}
+const strip = document.querySelector('.stats-strip');
+if (strip) new IntersectionObserver(e => { if (e[0].isIntersecting) startCounters(); }, { threshold: .5 }).observe(strip);
 
-  for (let i = 0; i < COUNT; i++) {
-    pieces.push({
-      x: Math.random() * canvas.width,
-      y: -20 - Math.random() * 200,
-      vx: (Math.random() - .5) * 4,
-      vy: 1.5 + Math.random() * 3,
-      rot: Math.random() * 360,
-      vrot: (Math.random() - .5) * 8,
-      size: 8 + Math.random() * 12,
-      color: colors[Math.floor(Math.random() * colors.length)],
-      emoji: Math.random() < .25 ? emojis[Math.floor(Math.random() * emojis.length)] : null,
-      alpha: 1
-    });
+/* ── Countdown ── */
+(function() {
+  const target = new Date('2026-06-06T20:00:00+03:00').getTime();
+  const pad = n => String(n).padStart(2,'0');
+  function tick() {
+    const d = target - Date.now();
+    if (d <= 0) return;
+    document.getElementById('cd-days').textContent  = pad(Math.floor(d / 86400000));
+    document.getElementById('cd-hours').textContent = pad(Math.floor((d % 86400000) / 3600000));
+    document.getElementById('cd-mins').textContent  = pad(Math.floor((d % 3600000) / 60000));
+    document.getElementById('cd-secs').textContent  = pad(Math.floor((d % 60000) / 1000));
   }
+  tick(); setInterval(tick, 1000);
+})();
 
-  let frame = 0;
+/* ── Notify form ── */
+const nf = document.getElementById('notify-form');
+if (nf) nf.addEventListener('submit', e => {
+  e.preventDefault();
+  nf.style.display = 'none';
+  document.getElementById('notify-ok').style.display = 'block';
+});
+
+/* ── Subtle DNA particle background (lightweight) ── */
+(function() {
+  const canvas = document.createElement('canvas');
+  Object.assign(canvas.style, { position:'fixed', inset:'0', zIndex:'0', pointerEvents:'none', opacity:'.18' });
+  document.body.insertBefore(canvas, document.body.firstChild);
+  const ctx = canvas.getContext('2d');
+  function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+  resize(); window.addEventListener('resize', resize);
+
+  const helices = [
+    { x: window.innerWidth * .05, speed: .18, offset: 0, hue: 47 },
+    { x: window.innerWidth * .95, speed: .14, offset: Math.PI, hue: 280 },
+    { x: window.innerWidth * .5,  speed: .12, offset: Math.PI/2, hue: 350 },
+  ];
+  let t = 0;
   function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    pieces.forEach(p => {
-      p.x += p.vx; p.y += p.vy; p.rot += p.vrot;
-      if (frame > 80) p.alpha = Math.max(0, p.alpha - .01);
-      ctx.save();
-      ctx.globalAlpha = p.alpha;
-      ctx.translate(p.x, p.y);
-      ctx.rotate(p.rot * Math.PI / 180);
-      if (p.emoji) {
-        ctx.font = p.size * 1.5 + 'px serif';
-        ctx.fillText(p.emoji, -p.size/2, p.size/2);
-      } else {
-        ctx.fillStyle = p.color;
-        ctx.fillRect(-p.size/2, -p.size/2, p.size, p.size * .4);
+    t += .006;
+    helices.forEach(h => {
+      const amp = 22, vstep = 22;
+      const rows = Math.ceil((canvas.height + 60) / vstep);
+      for (let r = 0; r < rows; r++) {
+        const y = r * vstep - 30;
+        const phase = t * h.speed + h.offset + r * .18;
+        const x1 = h.x + Math.sin(phase) * amp;
+        const x2 = h.x + Math.sin(phase + Math.PI) * amp;
+        const a = .04 + .04 * Math.abs(Math.sin(phase));
+        ctx.beginPath(); ctx.arc(x1, y, 2.5, 0, Math.PI*2);
+        ctx.fillStyle = `hsla(${h.hue},70%,65%,${a*2})`; ctx.fill();
+        ctx.beginPath(); ctx.arc(x2, y, 2.5, 0, Math.PI*2);
+        ctx.fillStyle = `hsla(${h.hue},70%,65%,${a*2})`; ctx.fill();
+        if (r % 3 === 0) {
+          ctx.beginPath(); ctx.moveTo(x1,y); ctx.lineTo(x2,y);
+          ctx.strokeStyle = `hsla(${h.hue},60%,65%,${a*1.5})`; ctx.lineWidth=1; ctx.stroke();
+        }
       }
-      ctx.restore();
     });
-    frame++;
-    if (frame < 180) requestAnimationFrame(draw);
-    else { ctx.clearRect(0, 0, canvas.width, canvas.height); canvas.style.display = 'none'; }
+    requestAnimationFrame(draw);
   }
-  // slight delay so page loads first
-  setTimeout(draw, 400);
+  draw();
 })();
