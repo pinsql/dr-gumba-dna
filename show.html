@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr. Gumba DNA Show — Season 2 · June 6, 2026</title>
+  <meta name="description" content="The Dr. Gumba DNA Show on Obinna Show Live. Kenya's most explosive DNA reality show. Season 2 premieres June 6, 2026." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:     #060d14;
+      --panel:  #0b1825;
+      --card:   #101f2e;
+      --accent: #00d9a6;
+      --hot:    #ff2d6b;
+      --purple: #7c3aed;
+      --text:   #ddeaf7;
+      --muted:  #6b8aaa;
+      --border: rgba(0,217,166,.12);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
+
+    /* ── NAV ── */
+    #nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 2.5rem;
+      transition: all .3s;
+    }
+    #nav.scrolled {
+      background: rgba(6,13,20,.95); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .logo { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 800; letter-spacing: .05em; color: var(--accent); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+    .nav-links a { font-size: .82rem; font-weight: 600; color: var(--muted); transition: color .2s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      font-size: .78rem; font-weight: 800; letter-spacing: .04em;
+      padding: .5rem 1.25rem; border-radius: 6px;
+      background: var(--hot); color: #fff;
+      transition: all .2s;
+    }
+    .nav-cta:hover { opacity: .85; transform: translateY(-1px); }
+    .burger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 4px; }
+    .burger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh; display: flex; align-items: center;
+      padding: 7rem 2.5rem 5rem;
+      background:
+        radial-gradient(ellipse at 20% 40%, rgba(255,45,107,.1) 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 60%, rgba(0,217,166,.07) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 10%, rgba(124,58,237,.08) 0%, transparent 45%),
+        var(--bg);
+    }
+    .hero-inner {
+      max-width: 1100px; margin: 0 auto; width: 100%;
+      display: flex; align-items: center; gap: 5rem;
+    }
+    .hero-text { flex: 1; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: .5rem;
+      font-size: .68rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+      background: rgba(255,45,107,.08); border: 1px solid rgba(255,45,107,.25);
+      color: var(--hot); padding: .35rem 1rem; border-radius: 100px; margin-bottom: 1.5rem;
+    }
+    .badge-dot {
+      width: 6px; height: 6px; border-radius: 50%; background: var(--hot);
+      animation: rpulse 2s ease-in-out infinite;
+    }
+    @keyframes rpulse { 0%,100% { box-shadow: 0 0 0 0 rgba(255,45,107,.5); } 50% { box-shadow: 0 0 0 5px rgba(255,45,107,0); } }
+    .hero-eyebrow {
+      font-size: .7rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase;
+      color: var(--accent); display: block; margin-bottom: .5rem;
+    }
+    .hero-name {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(3.2rem, 8vw, 6.5rem); font-weight: 800;
+      line-height: .92; letter-spacing: -.01em; margin-bottom: 1rem;
+    }
+    .hero-name .line-accent { color: var(--accent); }
+    .hero-sub { font-size: 1rem; color: var(--muted); margin-bottom: .6rem; }
+    .hero-tagline { font-size: 1.05rem; color: var(--text); margin-bottom: 2.5rem; opacity: .75; font-style: italic; }
+    .hero-tagline::before { content: '\201C'; color: var(--hot); font-style: normal; }
+    .hero-tagline::after  { content: '\201D'; color: var(--hot); font-style: normal; }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: .4rem;
+      padding: .8rem 1.8rem; border-radius: 6px; font-weight: 700; font-size: .88rem;
+      transition: all .2s; cursor: pointer; border: none;
+    }
+    .btn-hot { background: var(--hot); color: #fff; }
+    .btn-hot:hover { opacity: .9; transform: translateY(-2px); box-shadow: 0 10px 28px rgba(255,45,107,.25); }
+    .btn-accent { background: var(--accent); color: #000; }
+    .btn-accent:hover { opacity: .9; transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,217,166,.22); }
+    .btn-outline { border: 1.5px solid rgba(255,255,255,.15); color: var(--text); }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* hero right — poster card */
+    .hero-poster {
+      flex-shrink: 0; width: 300px;
+      background: var(--card); border: 1px solid rgba(255,45,107,.25);
+      border-radius: 20px; overflow: hidden;
+      box-shadow: 0 0 60px rgba(255,45,107,.12), 0 40px 80px rgba(0,0,0,.6);
+    }
+    .poster-img { width: 100%; height: 300px; object-fit: cover; object-position: top center; }
+    .poster-body { padding: 1.5rem; text-align: center; }
+    .poster-season {
+      font-size: .6rem; font-weight: 800; letter-spacing: .24em; text-transform: uppercase;
+      color: var(--hot); margin-bottom: .4rem;
+    }
+    .poster-title {
+      font-family: 'Syne', sans-serif; font-size: 1.4rem; font-weight: 800;
+      line-height: 1; color: var(--text); margin-bottom: .3rem;
+    }
+    .poster-on { font-size: .62rem; font-weight: 700; letter-spacing: .18em; color: var(--muted); margin-bottom: .25rem; }
+    .poster-show { font-family: 'Syne', sans-serif; font-size: .9rem; color: var(--accent); margin-bottom: 1rem; }
+    .poster-divider { height: 1px; background: rgba(255,45,107,.2); margin: .8rem 0; }
+    .poster-date { font-family: 'Syne', sans-serif; font-size: 1.1rem; color: var(--text); }
+    .poster-time { font-size: .68rem; font-weight: 600; letter-spacing: .1em; color: var(--muted); margin-top: .15rem; }
+    .poster-footer {
+      background: var(--hot); padding: .5rem;
+      font-size: .6rem; font-weight: 900; letter-spacing: .2em; text-transform: uppercase;
+      text-align: center; color: #fff;
+    }
+
+    /* ── SECTION BASE ── */
+    section { padding: 7rem 2.5rem; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .eyebrow {
+      display: block; font-size: .68rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: .7rem;
+    }
+    h2.sh2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    /* ── HOSTS ── */
+    #hosts { background: var(--panel); }
+    .hosts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-top: 3rem; }
+    .host-card {
+      background: var(--card); border: 1px solid rgba(255,255,255,.05);
+      border-radius: 16px; overflow: hidden;
+      transition: border-color .2s, transform .2s;
+    }
+    .host-card:hover { transform: translateY(-4px); }
+    .host-card.gumba { border-color: rgba(0,217,166,.15); }
+    .host-card.gumba:hover { border-color: var(--accent); }
+    .host-card.obinna { border-color: rgba(255,45,107,.12); }
+    .host-card.obinna:hover { border-color: var(--hot); }
+    .host-img { width: 100%; height: 280px; object-fit: cover; object-position: top center; }
+    .host-info { padding: 1.5rem 1.75rem; }
+    .host-role {
+      font-size: .65rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase;
+      margin-bottom: .35rem;
+    }
+    .host-role.teal { color: var(--accent); }
+    .host-role.pink { color: var(--hot); }
+    .host-name { font-family: 'Syne', sans-serif; font-size: 1.6rem; font-weight: 800; margin-bottom: .6rem; line-height: 1; }
+    .host-bio { font-size: .85rem; color: var(--muted); line-height: 1.8; margin-bottom: 1rem; font-style: italic; }
+    .host-links { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .host-link {
+      font-size: .7rem; font-weight: 700; letter-spacing: .04em;
+      padding: .28rem .8rem; border-radius: 100px;
+      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
+      transition: all .2s;
+    }
+    .host-link:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* duo composite strip */
+    .duo-strip {
+      margin-top: 2.5rem; border-radius: 16px; overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 16px 48px rgba(0,0,0,.5);
+    }
+    .duo-strip img { width: 100%; }
+
+    /* ── HOW IT WORKS ── */
+    #how { background: var(--bg); }
+    .steps-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: rgba(255,255,255,.05); border-radius: 14px; overflow: hidden; margin-top: 3rem; }
+    .step-block {
+      background: var(--card); padding: 2rem 1.6rem;
+      transition: background .2s;
+    }
+    .step-block:hover { background: var(--panel); }
+    .step-num {
+      font-family: 'Syne', sans-serif; font-size: 3rem; font-weight: 800;
+      line-height: 1; margin-bottom: .75rem; opacity: .12; color: var(--accent);
+    }
+    .step-icon { font-size: 1.6rem; margin-bottom: .75rem; }
+    .step-label { font-size: .62rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-bottom: .4rem; }
+    .step-block h4 { font-size: .95rem; font-weight: 800; margin-bottom: .5rem; }
+    .step-block p { font-size: .82rem; color: var(--muted); line-height: 1.7; }
+    .step-block.finale { background: rgba(255,45,107,.04); }
+    .step-block.finale:hover { background: rgba(255,45,107,.08); }
+    .step-block.finale .step-num { color: var(--hot); }
+
+    /* ── COUNTDOWN ── */
+    #countdown { background: var(--panel); }
+    .countdown-inner {
+      display: flex; align-items: center; gap: 6rem;
+      flex-wrap: wrap;
+    }
+    .cd-text { flex: 1; min-width: 260px; }
+    .cd-text p { color: var(--muted); font-size: .95rem; line-height: 1.85; margin-bottom: 2rem; }
+    .cd-watch { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-top: 1.5rem; }
+    .cd-watch-label { font-size: .75rem; font-weight: 700; color: var(--muted); letter-spacing: .06em; }
+    .watch-pill {
+      font-size: .72rem; font-weight: 700; letter-spacing: .05em;
+      padding: .3rem .85rem; border-radius: 100px;
+      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
+      transition: all .2s;
+    }
+    .watch-pill:hover { border-color: var(--accent); color: var(--accent); }
+    .cd-timer { flex-shrink: 0; }
+    .cd-boxes { display: flex; align-items: center; gap: .75rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .cd-box {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.25rem 1.5rem;
+      display: flex; flex-direction: column; align-items: center; min-width: 82px;
+    }
+    .cd-num {
+      font-family: 'Syne', sans-serif; font-size: 2.8rem; font-weight: 800;
+      line-height: 1; color: var(--accent);
+    }
+    .cd-box small {
+      font-size: .58rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--muted); margin-top: .25rem;
+    }
+    .cd-sep { font-family: 'Syne', sans-serif; font-size: 2rem; color: var(--accent); opacity: .35; }
+    .notify-form { display: flex; gap: .6rem; flex-wrap: wrap; }
+    .notify-form input {
+      flex: 1; min-width: 200px;
+      background: var(--card); border: 1px solid rgba(255,255,255,.08); color: var(--text);
+      font-family: 'Inter', sans-serif; font-size: .88rem; padding: .8rem 1.1rem;
+      border-radius: 6px; outline: none; transition: border-color .2s;
+    }
+    .notify-form input:focus { border-color: var(--accent); }
+    .notify-form input::placeholder { color: var(--muted); }
+    .notify-form button {
+      background: var(--accent); color: #000; border: none;
+      font-family: 'Inter', sans-serif; font-weight: 800; font-size: .82rem;
+      padding: .8rem 1.3rem; border-radius: 6px; cursor: pointer; white-space: nowrap;
+      transition: all .2s;
+    }
+    .notify-form button:hover { opacity: .85; transform: translateY(-1px); }
+    #notify-ok { display: none; color: var(--accent); font-size: .85rem; font-weight: 700; margin-top: .5rem; }
+
+    /* ── GALLERY ── */
+    #gallery { background: var(--bg); }
+    .gallery-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-top: 3rem; }
+    .gallery-item {
+      border-radius: 12px; overflow: hidden; background: var(--card);
+      position: relative; cursor: pointer;
+    }
+    .gallery-item.tall { grid-row: span 2; }
+    .gallery-item.wide { grid-column: span 2; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; min-height: 200px; }
+    .gallery-item:hover img { transform: scale(1.05); }
+    .gallery-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(6,13,20,.92), transparent);
+      padding: 1.2rem .9rem .7rem;
+      font-size: .7rem; font-weight: 700; letter-spacing: .06em; color: var(--accent);
+      opacity: 0; transition: opacity .3s;
+    }
+    .gallery-item:hover .gallery-caption { opacity: 1; }
+
+    /* ── APPLY CTA ── */
+    #apply { background: var(--panel); }
+    .apply-inner {
+      background: linear-gradient(135deg, rgba(255,45,107,.08), rgba(255,45,107,.02));
+      border: 1px solid rgba(255,45,107,.2); border-radius: 20px;
+      padding: 4rem; display: flex; align-items: center; justify-content: space-between;
+      gap: 3rem; flex-wrap: wrap;
+    }
+    .apply-text { flex: 1; }
+    .apply-text .eyebrow { color: var(--hot); }
+    .apply-text h2 { font-family: 'Syne', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; line-height: 1.1; margin-bottom: .75rem; }
+    .apply-text p { color: var(--muted); font-size: .95rem; line-height: 1.8; max-width: 500px; }
+    .apply-text p em { color: var(--accent); font-style: italic; }
+    .apply-actions { display: flex; flex-direction: column; gap: 1rem; align-items: flex-start; flex-shrink: 0; }
+    .apply-contact { font-size: .8rem; color: var(--muted); }
+    .apply-contact strong { display: block; font-family: 'Syne', sans-serif; font-size: 1.3rem; color: var(--accent); margin-top: .25rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg); border-top: 1px solid rgba(255,255,255,.04);
+      padding: 2rem 2.5rem;
+    }
+    .footer-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+      font-size: .8rem; color: var(--muted);
+    }
+    .footer-inner a { color: var(--accent); }
+    .footer-swahili { color: var(--hot); font-style: italic; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      .hero-inner { flex-direction: column; text-align: center; }
+      .hero-btns { justify-content: center; }
+      .hosts-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr 1fr; }
+      .countdown-inner { flex-direction: column; gap: 3rem; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-item.tall { grid-row: span 1; }
+      .gallery-item.wide { grid-column: span 1; }
+      .apply-inner { flex-direction: column; }
+    }
+    @media (max-width: 640px) {
+      section { padding: 5rem 1.25rem; }
+      #nav { padding: .85rem 1.25rem; }
+      .nav-links, .nav-cta { display: none; }
+      .burger { display: flex; }
+      .steps-grid { grid-template-columns: 1fr; gap: 1px; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .cd-box { padding: 1rem; min-width: 68px; }
+      .cd-num { font-size: 2.2rem; }
+      .apply-inner { padding: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="index.html" class="logo">DR. GUMBA DNA SHOW</a>
+  <ul class="nav-links">
+    <li><a href="index.html">About</a></li>
+    <li><a href="#hosts">Hosts</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#countdown">Season 2</a></li>
+  </ul>
+  <a href="apply.html" class="nav-cta">Apply Now</a>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-badge"><span class="badge-dot"></span> Season 2 &middot; June 6, 2026</div>
+      <span class="hero-eyebrow">On the Obinna Show Live</span>
+      <h1 class="hero-name">DR. GUMBA<br/><span class="line-accent">DNA SHOW</span></h1>
+      <p class="hero-sub">Kenya's most explosive DNA reality show &middot; Every Friday 8PM EAT</p>
+      <p class="hero-tagline">Fanya DNA Bana! Ukweli lazima utoke.</p>
+      <div class="hero-btns">
+        <a href="apply.html" class="btn btn-hot">Apply for the Show</a>
+        <a href="#how" class="btn btn-outline">How It Works</a>
+      </div>
+    </div>
+    <div class="hero-poster">
+      <img src="images/gumba4.jpg" alt="Dr. Gumba DNA Show" class="poster-img" />
+      <div class="poster-body">
+        <div class="poster-season">Season 2</div>
+        <div class="poster-title">DR. GUMBA<br/>DNA SHOW</div>
+        <div class="poster-on">on</div>
+        <div class="poster-show">Obinna Show Live</div>
+        <div class="poster-divider"></div>
+        <div class="poster-date">June 6 &middot; 2026</div>
+        <div class="poster-time">Friday &middot; 8PM EAT</div>
+      </div>
+      <div class="poster-footer">Coming Soon &middot; Ijakaribia!</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOSTS -->
+<section id="hosts">
+  <div class="section-inner">
+    <span class="eyebrow">The Dream Team</span>
+    <h2 class="sh2">Meet the Hosts</h2>
+
+    <div class="hosts-grid">
+      <!-- Dr. Gumba -->
+      <div class="host-card gumba">
+        <img src="images/gumba4.jpg" alt="Dr. Peter Ngumba" class="host-img" />
+        <div class="host-info">
+          <div class="host-role teal">Show Star &middot; DNA Expert</div>
+          <h3 class="host-name">Dr. Peter Ngumba</h3>
+          <p class="host-bio">"Started testing families door-to-door across Nairobi. Now Kenya watches live. The mission hasn't changed — the truth always comes out."</p>
+          <div class="host-links">
+            <a href="https://www.tiktok.com/@ngumbamls" target="_blank" class="host-link">TikTok @ngumbamls</a>
+            <a href="https://www.facebook.com/drngumba" target="_blank" class="host-link">Facebook @drngumba</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Obinna -->
+      <div class="host-card obinna">
+        <img src="images/obinna-profile.jpg" alt="Oga Obinna" class="host-img" />
+        <div class="host-info">
+          <div class="host-role pink">Co-Host &middot; TV Legend</div>
+          <h3 class="host-name">Oga Obinna</h3>
+          <p class="host-bio">"When Dr. Gumba reads the result, Kenya holds its breath. That moment — that's why we do the show."</p>
+          <div class="host-links">
+            <a href="https://www.tiktok.com/@ogaobinnatiktok" target="_blank" class="host-link">TikTok @ogaobinnatiktok</a>
+            <a href="https://www.instagram.com/ogaobinna" target="_blank" class="host-link">Instagram @ogaobinna</a>
+            <a href="https://obinnatvstudios.com" target="_blank" class="host-link">obinnatvstudios.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="duo-strip">
+      <img src="images/duo-composite.jpg" alt="Dr. Gumba and Oga Obinna" />
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="section-inner">
+    <span class="eyebrow">The Process</span>
+    <h2 class="sh2">Four Steps to the Truth</h2>
+
+    <div class="steps-grid">
+      <div class="step-block">
+        <div class="step-num">01</div>
+        <div class="step-icon">📩</div>
+        <div class="step-label">Step One</div>
+        <h4>Omba Nafasi</h4>
+        <p>Apply online with your story. Our team reads every submission. Kwa nini unahitaji DNA test?</p>
+      </div>
+      <div class="step-block">
+        <div class="step-num">02</div>
+        <div class="step-icon">🔬</div>
+        <div class="step-label">Step Two</div>
+        <h4>Dr. Gumba Tests</h4>
+        <p>Dr. Gumba runs the real DNA test in the lab. Results are sealed until show night.</p>
+      </div>
+      <div class="step-block">
+        <div class="step-num">03</div>
+        <div class="step-icon">🎤</div>
+        <div class="step-label">Step Three</div>
+        <h4>Obinna Anauliza</h4>
+        <p>Oga Obinna interviews everyone live on the Obinna Show. Hakuna siri. Hakuna mwisho.</p>
+      </div>
+      <div class="step-block finale">
+        <div class="step-num">04</div>
+        <div class="step-icon">💥</div>
+        <div class="step-label">Step Four</div>
+        <h4>The Reveal</h4>
+        <p>The envelope opens live. Kenya reacts. Someone's life changes forever. <em style="color:var(--accent)">Ukweli umefika.</em></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COUNTDOWN -->
+<section id="countdown">
+  <div class="section-inner">
+    <div class="countdown-inner">
+      <div class="cd-text">
+        <span class="eyebrow" style="color:var(--hot)">Season 2</span>
+        <h2 class="sh2">Brace yourself.<br/><span style="color:var(--accent)">It's back.</span></h2>
+        <p>"Ukweli lazima utoke!" — Season 2 of the Dr. Gumba DNA Show drops June 6th on the Obinna Show Live. More families. More results. Same zero-filter energy.</p>
+        <form id="notify-form" class="notify-form">
+          <input type="email" placeholder="Get show alerts — enter your email" required />
+          <button type="submit">Notify Me</button>
+        </form>
+        <p id="notify-ok">✓ You're on the list! See you June 6.</p>
+        <div class="cd-watch">
+          <span class="cd-watch-label">Watch on:</span>
+          <a href="https://www.youtube.com/@obinnatvupdates" target="_blank" class="watch-pill">YouTube</a>
+          <a href="https://www.tiktok.com/@ogaobinnatiktok" target="_blank" class="watch-pill">TikTok</a>
+          <a href="https://www.instagram.com/ogaobinna" target="_blank" class="watch-pill">Instagram</a>
+        </div>
+      </div>
+      <div class="cd-timer">
+        <div class="cd-boxes">
+          <div class="cd-box"><span class="cd-num" id="cd-days">00</span><small>Days</small></div>
+          <span class="cd-sep">:</span>
+          <div class="cd-box"><span class="cd-num" id="cd-hours">00</span><small>Hours</small></div>
+          <span class="cd-sep">:</span>
+          <div class="cd-box"><span class="cd-num" id="cd-mins">00</span><small>Mins</small></div>
+          <span class="cd-sep">:</span>
+          <div class="cd-box"><span class="cd-num" id="cd-secs">00</span><small>Secs</small></div>
+        </div>
+        <p style="font-size:.75rem;color:var(--muted);text-align:center;letter-spacing:.06em">JUNE 6, 2026 &middot; 8PM EAT</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="section-inner">
+    <span class="eyebrow">Gallery</span>
+    <h2 class="sh2">The Faces of the Truth</h2>
+
+    <div class="gallery-grid">
+      <div class="gallery-item tall">
+        <img src="images/gumba4.jpg" alt="Dr. Peter Ngumba" />
+        <div class="gallery-caption">Dr. Peter Ngumba — Kenya's DNA Expert</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/obinna-profile.jpg" alt="Oga Obinna" />
+        <div class="gallery-caption">Oga Obinna — Co-Host</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/obinna-show.jpg" alt="Obinna TV Studios" />
+        <div class="gallery-caption">Obinna TV Studios</div>
+      </div>
+      <div class="gallery-item wide">
+        <img src="images/duo-composite.jpg" alt="Dr. Gumba & Oga Obinna" />
+        <div class="gallery-caption">Dr. Gumba & Oga Obinna — The Dream Team</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/dna-kenya.png" alt="DNA Paternity Test Kenya" />
+        <div class="gallery-caption">Real Lab · Real Results · Live TV</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/obinna-formal.png" alt="Oga Obinna" />
+        <div class="gallery-caption">Oga Obinna — Show Night Ready</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPLY CTA -->
+<section id="apply">
+  <div class="section-inner">
+    <div class="apply-inner">
+      <div class="apply-text">
+        <span class="eyebrow">Apply Now</span>
+        <h2>Get on the show —<br/>tell Kenya your truth.</h2>
+        <p>Apply now. Dr. Gumba has the science. Obinna has the microphone. Kenya is watching. <em>Ukweli lazima utoke!</em></p>
+      </div>
+      <div class="apply-actions">
+        <a href="apply.html" class="btn btn-hot">Apply to Be on the Show &rarr;</a>
+        <div class="apply-contact">
+          Or call Dr. Gumba directly:
+          <strong>0740 250 696</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <span>&copy; 2026 Dr. Gumba DNA Show &middot; <a href="index.html">Dr. Peter Ngumba</a> &middot; <a href="https://obinnatvstudios.com" target="_blank">Obinna TV Studios</a> &middot; Kenya 🇰🇪</span>
+    <span class="footer-swahili">"Fanya DNA Bana!" 🧬</span>
+  </div>
+</footer>
+
+<script>
+/* Nav scroll */
+window.addEventListener('scroll', function() {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
+});
+
+/* Burger */
+const burger = document.getElementById('burger');
+if (burger) {
+  burger.addEventListener('click', function() {
+    const links = document.querySelector('.nav-links');
+    const open = links.style.display === 'flex';
+    if (!open) {
+      Object.assign(links.style, {
+        display: 'flex', flexDirection: 'column', position: 'fixed',
+        top: '64px', right: '1.25rem', background: 'rgba(6,13,20,.98)',
+        border: '1px solid rgba(0,217,166,.15)', borderRadius: '12px',
+        padding: '1.25rem 1.75rem', gap: '.9rem', zIndex: '200',
+        backdropFilter: 'blur(20px)', boxShadow: '0 20px 40px rgba(0,0,0,.5)'
+      });
+    } else {
+      links.style.display = '';
+    }
+  });
+  document.addEventListener('click', function(e) {
+    const nav = document.getElementById('nav');
+    const links = document.querySelector('.nav-links');
+    if (!nav.contains(e.target) && links.style.display === 'flex') {
+      links.style.display = '';
+    }
+  });
+  document.querySelectorAll('.nav-links a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      document.querySelector('.nav-links').style.display = '';
+    });
+  });
+}
+
+/* Countdown */
+(function() {
+  const target = new Date('2026-06-06T20:00:00+03:00').getTime();
+  const pad = function(n) { return String(n).padStart(2, '0'); };
+  function tick() {
+    const d = target - Date.now();
+    if (d <= 0) return;
+    document.getElementById('cd-days').textContent  = pad(Math.floor(d / 86400000));
+    document.getElementById('cd-hours').textContent = pad(Math.floor((d % 86400000) / 3600000));
+    document.getElementById('cd-mins').textContent  = pad(Math.floor((d % 3600000) / 60000));
+    document.getElementById('cd-secs').textContent  = pad(Math.floor((d % 60000) / 1000));
+  }
+  tick(); setInterval(tick, 1000);
+})();
+
+/* Notify form */
+const nf = document.getElementById('notify-form');
+if (nf) nf.addEventListener('submit', function(e) {
+  e.preventDefault();
+  nf.style.display = 'none';
+  document.getElementById('notify-ok').style.display = 'block';
+});
+</script>
+</body>
+</html>
